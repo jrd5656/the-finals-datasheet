@@ -438,6 +438,7 @@ document.addEventListener("keydown", e => { if (e.key==="Escape") $("#modal").cl
 const CLS_COLOR = {light:"#4da3ff", medium:"#b07cff", heavy:"#ff5c5c"};
 let scPts = [];
 function ttkFor(w, vs){ if(vs==="own") return selfTTK(w); if(vs==="light") return w.ttk_b_light; if(vs==="medium") return w.ttk_b_med; if(vs==="heavy") return w.ttk_b_heavy; return null; }
+function effDps(w){ const d=w.dps_body; if(d==null) return null; if(w.burst_shots!=null && w.burst_delay!=null && w.rpm!=null && w.rpm>0 && w.burst_shots>1){ const shot=60/w.rpm; const cycle=(w.burst_shots-1)*shot+w.burst_delay; if(cycle>0) return (w.burst_shots*w.dmg_body)/cycle; } return d; }
 function drawScatter(){
   const cv = $("#scatter");
   const dpr = window.devicePixelRatio||1;
@@ -449,7 +450,7 @@ function drawScatter(){
   const data = W.filter(w => (state.cls==="all"||w.cls===state.cls) && w.dps_body!=null && ttkFor(w,vs)!=null);
   if (!data.length){ ctx.fillStyle="#98a0b6"; ctx.font="13px Inter"; ctx.fillText("No data for this filter.", 20, Hpx/2); scPts=[]; return; }
   const maxX = Math.max(...data.map(w=>ttkFor(w,vs)))*1.15;
-  const maxY = Math.max(...data.map(w=>w.dps_body))*1.15;
+  const maxY = Math.max(...data.map(w=>effDps(w)))*1.15;
   const L=54, R=14, T=16, B=34;
   const px = v => L + (v/maxX)*(Wpx-L-R);
   const py = v => Hpx-B - (v/maxY)*(Hpx-T-B);
@@ -464,7 +465,7 @@ function drawScatter(){
   }
   const vsLabel = vs==="own" ? "own class" : vs; ctx.fillText("TTK body (s, vs "+vsLabel+") →", Wpx/2-80, Hpx-8);
   ctx.save(); ctx.translate(16,T+8); ctx.rotate(-Math.PI/2); ctx.fillText("DPS body →",0,0); ctx.restore();
-  scPts = data.map(w=>({name:w.name, cls:w.cls, x:px(ttkFor(w,vs)), y:py(w.dps_body), ttk:ttkFor(w,vs), dps:w.dps_body}));
+  scPts = data.map(w=>({name:w.name, cls:w.cls, x:px(ttkFor(w,vs)), y:py(effDps(w)), ttk:ttkFor(w,vs), dps:effDps(w)}));
   scPts.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,5,0,7); ctx.fillStyle=CLS_COLOR[p.cls]; ctx.fill(); });
 }
 const tip = document.createElement("div"); tip.className="tip"; document.body.appendChild(tip);
