@@ -4,6 +4,8 @@
 
 <h1 align="center">The Finals – Weapon Datasheet</h1>
 
+<p align="center"><a href="https://jrd5656.github.io/the-finals-datasheet/">🔗 Live site →</a></p>
+
 A single-page web app that presents the official **The Finals** weapon datasheet in a clean, interactive format. Built from the game's live spreadsheet, with analytics (scatter plot + bars), version-to-version diffing, and side-by-side compare.
 
 ## Pages
