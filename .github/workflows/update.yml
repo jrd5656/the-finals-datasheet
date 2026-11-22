@@ -1,0 +1,30 @@
+name: Update weapon snapshots
+on:
+  schedule:
+    - cron: "0 6 * * *"   # daily at 06:00 UTC
+  workflow_dispatch:        # can also be run manually from the Actions tab
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - name: Check for a new weapon-data version
+        id: check
+        run: |
+          python3 update_snapshots.py > result.txt
+          if grep -q "changed=yes" result.txt; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          cat result.txt
+      - name: Commit and push the new snapshot
+        if: ${{ steps.check.outputs.changed == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html snapshots/
+          git commit -m "Auto-update: new weapon data snapshot" || exit 1
+          git push
