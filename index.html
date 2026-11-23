@@ -9,7 +9,7 @@
 <style>
 :root{
   --bg:#0b0d12; --panel:#12151d; --panel2:#181c27; --line:#272b3a;
-  --text:#e9ebf2; --muted:#98a0b6; --accent:#ff3b3b; --accent-dk:#b32222;
+  --text:#e9ebf2; --muted:#aeb7ca; --accent:#ff3b3b; --accent-dk:#b32222;
   --gold:#f4c14d; --green:#3ddc84; --amber:#ffb454;
   --light:#4da3ff; --medium:#b07cff; --heavy:#ff5c5c;
 }
@@ -17,7 +17,7 @@
 html,body{margin:0;padding:0}
 body{background-color:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:14px;line-height:1.45;
   background-image:linear-gradient(rgba(11,13,18,.8),rgba(11,13,18,.8)),url('background2.jpg');
-  background-size:cover;background-position:center;background-attachment:fixed;
+  background-size:cover;background-position:center;
 }
 h1,h2,h3,.wname{font-family:"Rajdhani",sans-serif}
 
@@ -27,7 +27,7 @@ h1,h2,h3,.wname{font-family:"Rajdhani",sans-serif}
 .kicker{font-family:"Rajdhani";letter-spacing:.28em;font-size:12px;color:var(--muted);text-transform:uppercase}
 h1{font-size:44px;font-weight:700;margin:.15em 0 .1em;letter-spacing:.06em;text-transform:uppercase}
 h1 span{color:var(--accent)}
-.sub{margin:0;color:var(--muted);font-size:13px}
+.sub{margin:0;color:var(--muted);font-size:14px}
 .ver{display:inline-block;margin-left:10px;padding:2px 10px;border:1px solid var(--line);border-radius:4px;color:var(--text);font-size:11px;letter-spacing:.12em;background:var(--panel)}
 .sync{margin-top:8px;font-size:11px;color:var(--muted)}
 
@@ -60,7 +60,7 @@ main{max-width:1200px;margin:0 auto;padding:26px 28px 40px}
 .pill.unver{color:var(--amber);border-color:rgba(255,180,84,.4)}
 .statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 16px}
 .stat{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed #232736;padding-bottom:5px}
-.stat .k{font-size:10px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+.stat .k{font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
 .stat .v{font-family:"Rajdhani";font-weight:600;font-size:15px}
 .row-actions{display:flex;gap:8px;margin-top:12px}
 .btn{font-family:"Rajdhani";font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:var(--panel2);color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:7px 12px;cursor:pointer}
@@ -78,16 +78,18 @@ table.full td:last-child{font-family:"Rajdhani";font-weight:600;text-align:right
 /* analytics */
 .section{max-width:1200px;margin:0 auto;padding:34px 28px;border-top:1px solid var(--line)}
 .section h2{font-size:20px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin:0 0 6px}
-.section .hint{color:var(--muted);font-size:12px;margin:0 0 16px}
+.section .hint{color:var(--muted);font-size:13px;margin:0 0 16px}
 .panel-box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;position:relative}
 #scatter{width:100%;height:430px;display:block;border-radius:8px}
+@media (max-width:800px){#scatter{height:340px}}
+@media (max-width:480px){#scatter{height:300px}}
 .tip{position:fixed;pointer-events:none;background:var(--panel2);border:1px solid var(--line);padding:6px 10px;border-radius:6px;font-size:12px;display:none;z-index:40;max-width:260px}
 .bars-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 @media (max-width:800px){.bars-wrap{grid-template-columns:1fr}}
 .bgroup{margin-top:14px}
 .bgroup h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .brow{display:flex;align-items:center;gap:10px;margin:4px 0}
-.bname{width:170px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-family:"Rajdhani";font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bname{flex:0 1 auto;min-width:90px;max-width:180px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-family:"Rajdhani";font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .btrack{flex:1;background:#1d2130;height:10px;border-radius:5px;overflow:hidden}
 .bfill{height:100%;border-radius:5px;width:0}
 .bval{width:64px;text-align:right;font-family:"Rajdhani";font-weight:600;font-size:13px}
@@ -99,6 +101,9 @@ table.diff{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
 table.diff th{color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-align:left;padding:5px 8px;border-bottom:1px solid var(--line)}
 table.diff td{padding:5px 8px;border-bottom:1px solid #1d2130}
 .chg{color:var(--green);font-weight:600}
+.up{color:var(--green)} .down{color:#ff7a7a}
+.diff .added td{color:var(--green);font-style:italic}
+.diff .removed td{color:#ff7a7a;font-style:italic}
 
 /* compare tray */
 .tray{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:20;background:var(--panel2);border:1px solid var(--gold);border-radius:10px;padding:10px 16px;display:none;gap:12px;align-items:center}
@@ -106,9 +111,14 @@ table.diff td{padding:5px 8px;border-bottom:1px solid #1d2130}
 .tray .chip{font-family:"Rajdhani";font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold)}
 .tray button{font-size:12px;background:var(--panel);color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:6px 10px;cursor:pointer}
 .tray .go{color:var(--text)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.tray button:disabled{opacity:.4;cursor:not-allowed}
+.tray-hint{font-size:11px;color:var(--amber);letter-spacing:.06em}
+#tray-chips{display:flex;gap:8px;overflow-x:auto;max-width:60vw;padding-bottom:2px}
+@media (max-width:600px){#tray-chips{max-width:100%}.tray{left:8px;right:8px;transform:none;flex-wrap:wrap;justify-content:center}}
 
 /* modal */
-.modal{position:fixed;inset:0;z-index:30;background:rgba(5,7,10,.8);display:none;align-items:center;justify-content:center;padding:24px}
+.modal{position:fixed;inset:0;z-index:30;background:rgba(5,7,10,.78);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:24px}
 .modal.show{display:flex}
 .modal-panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:860px;width:100%;max-height:85vh;overflow:auto;padding:22px 24px}
 .modal-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
@@ -120,6 +130,28 @@ table.cmp thead th{font-size:10px;letter-spacing:.14em;text-transform:uppercase;
 table.cmp td:last-child,table.cmp th:nth-child(3){text-align:right;font-family:"Rajdhani";font-weight:600}
 .good{color:var(--green)} .bad{color:#ff7a7a}
 
+/* skip link + focus */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:var(--accent);color:#fff;font-family:"Rajdhani";font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:0 0 8px 0}
+.skip-link:focus{left:0;outline:2px solid #fff;outline-offset:2px}
+*:focus-visible{outline:2px solid var(--light);outline-offset:2px;border-radius:4px}
+
+/* hero stat strip */
+.statstrip{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.statstrip .chip{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.statstrip .chip b{color:var(--text);font-family:"Rajdhani";font-weight:700;font-size:14px;margin-right:6px}
+
+/* section nav */
+.section-nav{flex-basis:100%;display:flex;gap:6px;padding-bottom:2px}
+.section-nav a{font-family:"Rajdhani";font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:5px 10px;border-radius:6px;border:1px solid transparent}
+.section-nav a:hover{color:var(--text);border-color:var(--line)}
+.section-nav a.active{color:var(--text);border-color:var(--accent);background:var(--panel)}
+
+/* scatter legend */
+.legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.legend .lg{display:inline-flex;align-items:center;gap:6px}
+.legend .swatch{width:10px;height:10px;border-radius:50%;display:inline-block}
+.legend .ring{width:12px;height:12px;border-radius:50%;border:2px solid var(--gold);display:inline-block}
+
 /* footer */
 footer{border-top:1px solid var(--line);padding:26px 28px 40px;max-width:1200px;margin:0 auto;color:var(--muted);font-size:12px}
 footer h3{color:var(--text);font-size:15px;letter-spacing:.1em;text-transform:uppercase;margin:18px 0 8px}
@@ -130,6 +162,7 @@ footer h3{color:var(--text);font-size:15px;letter-spacing:.1em;text-transform:up
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="hero">
   <div class="hero-inner">
@@ -137,29 +170,37 @@ footer h3{color:var(--text);font-size:15px;letter-spacing:.1em;text-transform:up
     <h1>The <span>Finals</span></h1>
     <p class="sub">Weapon datasheet<span class="ver" id="verbadge">…</span></p>
     <p class="sync" id="sync">Loading…</p>
+    <div class="statstrip" id="statstrip"></div>
   </div>
 </header>
 
 <div class="controls">
   <div class="controls-inner">
+    <nav class="section-nav" aria-label="Sections">
+      <a href="#main" data-sec="weapons">Weapons</a>
+      <a href="#analytics" data-sec="analytics">Analytics</a>
+      <a href="#diff" data-sec="diff">Diff</a>
+    </nav>
     <div class="tabs" id="tabs"></div>
-    <input class="search" id="q" type="search" placeholder="Search weapon…" autocomplete="off">
-    <select class="sortsel" id="sort">
+    <input class="search" id="q" type="search" placeholder="Search weapon…" autocomplete="off" aria-label="Search weapons">
+    <select class="sortsel" id="sort" aria-label="Sort weapons">
       <option value="name">Sort: Name</option>
       <option value="dps_body">Sort: DPS (body)</option>
       <option value="dpm_body">Sort: DPM (body)</option>
       <option value="rpm">Sort: RPM</option>
+      <option value="ttk">Sort: Time-to-kill</option>
+      <option value="rt_tactical">Sort: Reload time</option>
     </select>
   </div>
 </div>
 
-<main><div class="grid" id="grid"></div></main>
+<main id="main"><div class="grid" id="grid"></div></main>
 
-<section class="section">
+<section class="section" id="analytics">
   <h2>Analytics</h2>
   <p class="hint">Efficiency view: time-to-kill (body) × damage-per-second. Pick which class to compare against. Click a point to add it to the compare tray.</p>
   <div style="margin-bottom:10px;display:flex;gap:8px;align-items:center">
-    <label style="font-size:12px;color:var(--muted)">TTK vs:</label>
+    <label for="vscls" style="font-size:12px;color:var(--muted)">TTK vs:</label>
     <select id="vscls" style="background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:5px 8px;font-size:12px">
       <option value="own">Own class</option>
       <option value="light">Light</option>
@@ -167,31 +208,40 @@ footer h3{color:var(--text);font-size:15px;letter-spacing:.1em;text-transform:up
       <option value="heavy">Heavy</option>
     </select>
   </div>
-  <div class="panel-box"><canvas id="scatter"></canvas></div>
+  <div class="panel-box">
+    <canvas id="scatter" role="img" aria-label="Scatter plot of time-to-kill versus damage per second, points colored by weapon class with a gold ring for meta weapons"></canvas>
+    <div class="legend" id="scatter-legend">
+      <span class="lg"><span class="swatch" style="background:var(--light)"></span>Light</span>
+      <span class="lg"><span class="swatch" style="background:var(--medium)"></span>Medium</span>
+      <span class="lg"><span class="swatch" style="background:var(--heavy)"></span>Heavy</span>
+      <span class="lg"><span class="ring"></span>Meta (⭐)</span>
+    </div>
+  </div>
   <div class="bars-wrap">
     <div class="panel-box" id="bars-dpm"><h3 style="margin-top:0">Damage per magazine</h3><div class="bars"></div></div>
     <div class="panel-box" id="bars-rt"><h3 style="margin-top:0">Tactical reload time (s) - lower is better</h3><div class="bars"></div></div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="diff">
   <h2>Patch Diff</h2>
   <p class="hint">Compare weapon stats between two version snapshots. New snapshots are captured automatically when the live sheet reports a new version.</p>
   <div class="diff-controls">
-    <select class="sortsel" id="diff-a"></select><span style="color:var(--muted)">vs</span>
-    <select class="sortsel" id="diff-b"></select>
+    <select class="sortsel" id="diff-a" aria-label="Version A"></select><span style="color:var(--muted)">vs</span>
+    <select class="sortsel" id="diff-b" aria-label="Version B"></select>
     <button class="btn primary" id="diff-go">Show diff</button>
   </div>
   <div class="diff-out" id="diff-out">Select two versions to compare.</div>
 </section>
 
-<div class="tray" id="tray">
+<div class="tray" id="tray" role="region" aria-label="Compare tray">
   <span id="tray-chips"></span>
+  <span class="tray-hint" id="tray-hint" hidden></span>
   <button id="tray-clear">Clear</button>
-  <button class="go" id="tray-go">Compare</button>
+  <button class="go" id="tray-go" disabled>Compare</button>
 </div>
 
-<div class="modal" id="modal"><div class="modal-panel" id="modal-panel"></div></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-panel" id="modal-panel"></div></div>
 
 <footer>
   <h3>Glossary</h3>
@@ -214,10 +264,13 @@ const _verCache = {};
 function cmpVersions(a,b){ const pa=a.split("."), pb=b.split("."); for(let i=0;i<3;i++){ if((pa[i]||0)!==(pb[i]||0)) return (pa[i]||0)-(pb[i]||0);} return 0; }
 async function getVersion(v){ const top=[...VERSIONS].sort(cmpVersions).slice(-1)[0]; if (v===top) return LATEST; if (_verCache[v]) return _verCache[v]; const r=await fetch("snapshots/ver-"+v+".json"); if(!r.ok) throw new Error("missing "+v); const d=await r.json(); _verCache[v]=d; return d; }
 const VERSIONS = ["12.3.0"];
-const LATEST = [{"cls": "light", "name": "93R", "type": "Handgun", "meta": false, "firing_mode": "Burst", "dmg_body": 24.0, "dmg_head": 36.0, "dmg_env": 7.0, "rpm": 1000.0, "mag": 27.0, "rt_tactical": 1.45, "rt_empty": 1.75, "dd_min": 30.0, "dd_max": 37.5, "dd_mod": 50.0, "burst_shots": 3.0, "burst_delay": 0.275, "dpm_body": 648.0, "dpm_head": 972.0, "dps_body": 400.0, "dps_head": 600.0, "ttk_b_light": 0.97, "stk_b_light": 8.0, "acc_b_light": 27.01, "ttk_h_light": 0.52, "stk_h_light": 5.0, "acc_h_light": 18.0, "ttk_b_med": 1.43, "stk_b_med": 11.0, "acc_b_med": 38.58, "ttk_h_med": 0.91, "stk_h_med": 7.0, "acc_h_med": 25.72, "ttk_b_heavy": 1.88, "stk_b_heavy": 14.0, "acc_b_heavy": 50.15, "ttk_h_heavy": 1.37, "stk_h_heavy": 10.0, "acc_h_heavy": 33.44, "last_update": "Ver. 11.0.0", "status": "Under Verification", "notes": ""}, {"cls": "light", "name": "ARN-220", "type": "Assault Riffle", "meta": true, "firing_mode": "Automatic", "dmg_body": 17.0, "dmg_head": 25.5, "dmg_env": 3.5, "rpm": 750.0, "mag": null, "rt_tactical": 2.45, "rt_empty": null, "dd_min": 37.5, "dd_max": 45.0, "dd_mod": 72.0, "burst_shots": null, "burst_delay": null, "dpm_body": null, "dpm_head": null, "dps_body": 212.5, "dps_head": 318.75, "ttk_b_light": 0.8, "stk_b_light": 11.0, "acc_b_light": 34.31, "ttk_h_light": 0.48, "stk_h_light": 7.0, "acc_h_light": 22.88, "ttk_b_med": 1.12, "stk_b_med": 15.0, "acc_b_med": 49.02, "ttk_h_med": 0.72, "stk_h_med": 10.0, "acc_h_med": 32.68, "ttk_b_heavy": 1.52, "stk_b_heavy": 20.0, "acc_b_heavy": 63.73, "ttk_h_heavy": 0.96, "stk_h_heavy": 13.0, "acc_h_heavy": 42.48, "last_update": "Ver. 11.6.0", "status": "Verified", "notes": "Quick reload triggers when you have emptied a magazine, and when you have a \"quick magazine\" available (indicated by the bars near your ammo count). Otherwise, a normal reload will occur. REQ ACC is only taking into account first charger (not the full magazine)"}, {"cls": "light", "name": "LH1", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 40.0, "dmg_head": 80.0, "dmg_env": 14.0, "rpm": 280.0, "mag": 15.0, "rt_tactical": 1.95, "rt_empty": 2.85, "dd_min": 35.0, "dd_max": 45.0, "dd_mod": 72.0, "burst_shots": null, "burst_delay": null, "dpm_body": 600.0, "dpm_head": 1200.0, "dps_body": 186.67, "dps_head": 373.33, "ttk_b_light": 0.86, "stk_b_light": 5.0, "acc_b_light": 29.17, "ttk_h_light": 0.43, "stk_h_light": 3.0, "acc_h_light": 14.58, "ttk_b_med": 1.29, "stk_b_med": 7.0, "acc_b_med": 41.67, "ttk_h_med": 0.64, "stk_h_med": 4.0, "acc_h_med": 20.83, "ttk_b_heavy": 1.71, "stk_b_heavy": 9.0, "acc_b_heavy": 54.17, "ttk_h_heavy": 0.86, "stk_h_heavy": 5.0, "acc_h_heavy": 27.08, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "light", "name": "M11", "type": "SMG", "meta": true, "firing_mode": "Automatic", "dmg_body": 16.0, "dmg_head": 24.0, "dmg_env": 5.0, "rpm": 1000.0, "mag": 40.0, "rt_tactical": 1.55, "rt_empty": 1.85, "dd_min": 10.0, "dd_max": 20.0, "dd_mod": 45.0, "burst_shots": null, "burst_delay": null, "dpm_body": 640.0, "dpm_head": 960.0, "dps_body": 266.67, "dps_head": 400.0, "ttk_b_light": 0.6, "stk_b_light": 11.0, "acc_b_light": 27.34, "ttk_h_light": 0.42, "stk_h_light": 8.0, "acc_h_light": 18.23, "ttk_b_med": 0.9, "stk_b_med": 16.0, "acc_b_med": 39.06, "ttk_h_med": 0.6, "stk_h_med": 11.0, "acc_h_med": 26.04, "ttk_b_heavy": 1.2, "stk_b_heavy": 21.0, "acc_b_heavy": 50.78, "ttk_h_heavy": 0.78, "stk_h_heavy": 14.0, "acc_h_heavy": 33.85, "last_update": "Ver. 11.6.0", "status": "Verified", "notes": "Recoil & Bullet dispersion (ADS + Hipfire) is increased since update ver. 11.6.0"}, {"cls": "light", "name": "M26 MATTER", "type": "Shotgun", "meta": false, "firing_mode": "Single", "dmg_body": 121.0, "dmg_head": null, "dmg_env": 99.0, "rpm": 85.0, "mag": 8.0, "rt_tactical": 2.05, "rt_empty": 2.45, "dd_min": 15.0, "dd_max": 25.0, "dd_mod": 64.0, "burst_shots": null, "burst_delay": null, "dpm_body": 968.0, "dpm_head": null, "dps_body": 171.42, "dps_head": null, "ttk_b_light": 0.71, "stk_b_light": 2.0, "acc_b_light": 18.08, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.41, "stk_b_med": 3.0, "acc_b_med": 25.83, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 1.41, "stk_b_heavy": 3.0, "acc_b_heavy": 33.57, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 10.6.0", "status": "Verified", "notes": ""}, {"cls": "light", "name": "RECURVE BOW (UNCHARGED)", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 60.0, "dmg_head": 90.0, "dmg_env": 12.125, "rpm": 78.0, "mag": null, "rt_tactical": null, "rt_empty": null, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": null, "dpm_head": null, "dps_body": 78.0, "dps_head": 117.0, "ttk_b_light": 1.54, "stk_b_light": 3.0, "acc_b_light": null, "ttk_h_light": 0.77, "stk_h_light": 2.0, "acc_h_light": null, "ttk_b_med": 3.08, "stk_b_med": 5.0, "acc_b_med": null, "ttk_h_med": 1.54, "stk_h_med": 3.0, "acc_h_med": null, "ttk_b_heavy": 3.85, "stk_b_heavy": 6.0, "acc_b_heavy": null, "ttk_h_heavy": 2.31, "stk_h_heavy": 4.0, "acc_h_heavy": null, "last_update": "Ver. 11.6.0", "status": "Verified", "notes": "Takes ~160ms to fire the 1st shot. TTK does not account for projectile travel time. Rate of fire overall is 103 RPM. Minimum draw time is 0.08s."}, {"cls": "light", "name": "RECURVE BOW (CHARGED)", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 126.0, "dmg_head": 189.0, "dmg_env": 25.0, "rpm": 48.0, "mag": null, "rt_tactical": null, "rt_empty": null, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": null, "dpm_head": null, "dps_body": 100.8, "dps_head": 151.2, "ttk_b_light": 1.25, "stk_b_light": 2.0, "acc_b_light": null, "ttk_h_light": 0.0, "stk_h_light": 1.0, "acc_h_light": null, "ttk_b_med": 1.25, "stk_b_med": 2.0, "acc_b_med": null, "ttk_h_med": 1.25, "stk_h_med": 2.0, "acc_h_med": null, "ttk_b_heavy": 2.5, "stk_b_heavy": 3.0, "acc_b_heavy": null, "ttk_h_heavy": 1.25, "stk_h_heavy": 2.0, "acc_h_heavy": null, "last_update": "Ver. 11.6.0", "status": "Verified", "notes": "Takes ~640ms to charge a shot.  TTK does not account for projectile travel time.  Damage increases from 60 to 126 (continuously) based on how long this weapon was charged."}, {"cls": "light", "name": "SH1900", "type": "Shotgun", "meta": false, "firing_mode": "Single", "dmg_body": 180.0, "dmg_head": null, "dmg_env": 90.0, "rpm": 80.0, "mag": 2.0, "rt_tactical": 2.2, "rt_empty": 2.6, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": 360.0, "dpm_head": null, "dps_body": 240.0, "dps_head": null, "ttk_b_light": 0.0, "stk_b_light": 1.0, "acc_b_light": 48.61, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 0.75, "stk_b_med": 2.0, "acc_b_med": 69.44, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 0.75, "stk_b_heavy": 2.0, "acc_b_heavy": 90.28, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 10.0.0", "status": "Verified", "notes": "Damage per bullet is 12*15 = 180 damage."}, {"cls": "light", "name": "SR-84", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 122.0, "dmg_head": 244.0, "dmg_env": 27.0, "rpm": 40.0, "mag": 6.0, "rt_tactical": 1.95, "rt_empty": 3.35, "dd_min": 80.0, "dd_max": 100.0, "dd_mod": 75.0, "burst_shots": null, "burst_delay": null, "dpm_body": 732.0, "dpm_head": 1464.0, "dps_body": 81.33, "dps_head": 162.67, "ttk_b_light": 1.5, "stk_b_light": 2.0, "acc_b_light": 23.91, "ttk_h_light": 0.0, "stk_h_light": 1.0, "acc_h_light": 11.95, "ttk_b_med": 3.0, "stk_b_med": 3.0, "acc_b_med": 34.15, "ttk_h_med": 1.5, "stk_h_med": 2.0, "acc_h_med": 17.08, "ttk_b_heavy": 3.0, "stk_b_heavy": 3.0, "acc_b_heavy": 44.4, "ttk_h_heavy": 1.5, "stk_h_heavy": 2.0, "acc_h_heavy": 22.2, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": "Bullets are hitscan up until 40m, and then converted into projectiles afterwards. Air drag on the projectile is 0.08. Initial projectile velocity is 240 m/s. Gravity multiplier on the projectile is 0.55."}, {"cls": "light", "name": "THROWING KNIVES", "type": "Miscellaneous", "meta": false, "firing_mode": "Automatic/Burst", "dmg_body": 60.0, "dmg_head": 90.0, "dmg_env": 20.0, "rpm": 545.45, "mag": null, "rt_tactical": null, "rt_empty": null, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": 2.0, "burst_delay": 0.59, "dpm_body": null, "dpm_head": null, "dps_body": 545.45, "dps_head": 818.18, "ttk_b_light": 0.81, "stk_b_light": 3.0, "acc_b_light": null, "ttk_h_light": 0.11, "stk_h_light": 2.0, "acc_h_light": null, "ttk_b_med": 1.62, "stk_b_med": 5.0, "acc_b_med": null, "ttk_h_med": 0.81, "stk_h_med": 3.0, "acc_h_med": null, "ttk_b_heavy": 1.73, "stk_b_heavy": 6.0, "acc_b_heavy": null, "ttk_h_heavy": 0.92, "stk_h_heavy": 4.0, "acc_h_heavy": null, "last_update": "Ver. 4.0.0", "status": "Under Verification", "notes": "TTK does not account for projectile travel time, or the initial delay when throwing the knives.  It represents more of a \"time-to-death\" calculation, if anything."}, {"cls": "light", "name": "THROWING KNIVES (ALT.)", "type": "Miscellaneous", "meta": false, "firing_mode": "Single", "dmg_body": 140.0, "dmg_head": 210.0, "dmg_env": 40.0, "rpm": 27.7, "mag": null, "rt_tactical": null, "rt_empty": null, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": null, "dpm_head": null, "dps_body": 64.63, "dps_head": 96.95, "ttk_b_light": 2.17, "stk_b_light": 2.0, "acc_b_light": null, "ttk_h_light": 0.0, "stk_h_light": 1.0, "acc_h_light": null, "ttk_b_med": 2.17, "stk_b_med": 2.0, "acc_b_med": null, "ttk_h_med": 2.17, "stk_h_med": 2.0, "acc_h_med": null, "ttk_b_heavy": 4.33, "stk_b_heavy": 3.0, "acc_b_heavy": null, "ttk_h_heavy": 2.17, "stk_h_heavy": 2.0, "acc_h_heavy": null, "last_update": "Ver. 4.0.0", "status": "Verified", "notes": "TTK does not account for projectile travel time, or the initial delay when throwing the knives.  It represents more of a \"time-to-death\" calculation, if anything."}, {"cls": "light", "name": "V9S", "type": "Handgun", "meta": true, "firing_mode": "Single", "dmg_body": 38.0, "dmg_head": 57.0, "dmg_env": 8.0, "rpm": 360.0, "mag": 18.0, "rt_tactical": 1.25, "rt_empty": 1.5, "dd_min": 15.0, "dd_max": 20.0, "dd_mod": 65.0, "burst_shots": null, "burst_delay": null, "dpm_body": 684.0, "dpm_head": 1026.0, "dps_body": 228.0, "dps_head": 342.0, "ttk_b_light": 0.67, "stk_b_light": 5.0, "acc_b_light": 25.58, "ttk_h_light": 0.5, "stk_h_light": 4.0, "acc_h_light": 17.06, "ttk_b_med": 1.0, "stk_b_med": 7.0, "acc_b_med": 36.55, "ttk_h_med": 0.67, "stk_h_med": 5.0, "acc_h_med": 24.37, "ttk_b_heavy": 1.33, "stk_b_heavy": 9.0, "acc_b_heavy": 47.51, "ttk_h_heavy": 0.83, "stk_h_heavy": 6.0, "acc_h_heavy": 31.68, "last_update": "Ver. 10.6.0", "status": "Verified", "notes": ""}, {"cls": "light", "name": "XP-54", "type": "SMG", "meta": true, "firing_mode": "Automatic", "dmg_body": 16.0, "dmg_head": 24.0, "dmg_env": 8.0, "rpm": 880.0, "mag": 34.0, "rt_tactical": 2.25, "rt_empty": 2.5, "dd_min": 22.5, "dd_max": 32.5, "dd_mod": 52.0, "burst_shots": null, "burst_delay": null, "dpm_body": 544.0, "dpm_head": 816.0, "dps_body": 234.67, "dps_head": 352.0, "ttk_b_light": 0.68, "stk_b_light": 11.0, "acc_b_light": 32.17, "ttk_h_light": 0.48, "stk_h_light": 8.0, "acc_h_light": 21.45, "ttk_b_med": 1.02, "stk_b_med": 16.0, "acc_b_med": 45.96, "ttk_h_med": 0.68, "stk_h_med": 11.0, "acc_h_med": 30.64, "ttk_b_heavy": 1.36, "stk_b_heavy": 21.0, "acc_b_heavy": 59.74, "ttk_h_heavy": 0.89, "stk_h_heavy": 14.0, "acc_h_heavy": 39.83, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "medium", "name": "AKM", "type": "Assault Riffle", "meta": false, "firing_mode": "Automatic", "dmg_body": 21.0, "dmg_head": 31.5, "dmg_env": 10.0, "rpm": 600.0, "mag": 36.0, "rt_tactical": 2.35, "rt_empty": 2.35, "dd_min": 30.0, "dd_max": 37.5, "dd_mod": 55.0, "burst_shots": null, "burst_delay": null, "dpm_body": 756.0, "dpm_head": 1134.0, "dps_body": 210.0, "dps_head": 315.0, "ttk_b_light": 0.8, "stk_b_light": 9.0, "acc_b_light": 23.15, "ttk_h_light": 0.5, "stk_h_light": 6.0, "acc_h_light": 15.43, "ttk_b_med": 1.1, "stk_b_med": 12.0, "acc_b_med": 33.07, "ttk_h_med": 0.7, "stk_h_med": 8.0, "acc_h_med": 22.05, "ttk_b_heavy": 1.5, "stk_b_heavy": 16.0, "acc_b_heavy": 42.99, "ttk_h_heavy": 1.0, "stk_h_heavy": 11.0, "acc_h_heavy": 28.66, "last_update": "Ver. 11.6.0", "status": "Verified", "notes": ""}, {"cls": "medium", "name": "CB-01 REPEATER", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 85.0, "dmg_head": 127.5, "dmg_env": 25.0, "rpm": 82.0, "mag": 8.0, "rt_tactical": null, "rt_empty": 5.05, "dd_min": 35.0, "dd_max": 40.0, "dd_mod": 66.0, "burst_shots": null, "burst_delay": null, "dpm_body": 680.0, "dpm_head": 1020.0, "dps_body": 116.17, "dps_head": 174.25, "ttk_b_light": 1.46, "stk_b_light": 3.0, "acc_b_light": 25.74, "ttk_h_light": 0.73, "stk_h_light": 2.0, "acc_h_light": 17.16, "ttk_b_med": 1.46, "stk_b_med": 3.0, "acc_b_med": 36.76, "ttk_h_med": 0.73, "stk_h_med": 2.0, "acc_h_med": 24.51, "ttk_b_heavy": 2.2, "stk_b_heavy": 4.0, "acc_b_heavy": 47.79, "ttk_h_heavy": 1.46, "stk_h_heavy": 3.0, "acc_h_heavy": 31.86, "last_update": "Ver. 12.1.0", "status": "Verified", "notes": "Firing the weapon will cancel the reload animation. Aim down sights zoom time is 0.24s. Vs. Medium, Repeater is stronger than Pike for ranged duals."}, {"cls": "medium", "name": "CERBERUS 12GA", "type": "Shotgun", "meta": false, "firing_mode": "Single", "dmg_body": 117.0, "dmg_head": null, "dmg_env": 91.0, "rpm": 100.0, "mag": 3.0, "rt_tactical": null, "rt_empty": 2.95, "dd_min": 10.0, "dd_max": 17.5, "dd_mod": 63.0, "burst_shots": null, "burst_delay": null, "dpm_body": 351.0, "dpm_head": null, "dps_body": 195.0, "dps_head": null, "ttk_b_light": 0.6, "stk_b_light": 2.0, "acc_b_light": 49.86, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.2, "stk_b_med": 3.0, "acc_b_med": 71.23, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 1.2, "stk_b_heavy": 3.0, "acc_b_heavy": 92.59, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 12.3.0", "status": "Verified", "notes": "Deals 117 damage on hit (9 x 13 pellets), and then an extra ~45 damage from the fire DoT that last for ~2 seconds.  DoT does not stack, and it resets on every hit. The burn value is ~15 damage/seconds."}, {"cls": "medium", "name": "CHIMERA-XB", "type": "Marksman Riffle", "meta": true, "firing_mode": "Sinle", "dmg_body": 48.0, "dmg_head": 72.0, "dmg_env": 12.0, "rpm": 280.0, "mag": 15.0, "rt_tactical": 2.15, "rt_empty": 2.15, "dd_min": 17.5, "dd_max": 27.5, "dd_mod": 53.0, "burst_shots": null, "burst_delay": null, "dpm_body": 720.0, "dpm_head": 1080.0, "dps_body": 224.0, "dps_head": 336.0, "ttk_b_light": 0.64, "stk_b_light": 4.0, "acc_b_light": 24.31, "ttk_h_light": 0.43, "stk_h_light": 3.0, "acc_h_light": 16.2, "ttk_b_med": 1.07, "stk_b_med": 6.0, "acc_b_med": 34.72, "ttk_h_med": 0.64, "stk_h_med": 4.0, "acc_h_med": 23.15, "ttk_b_heavy": 1.29, "stk_b_heavy": 7.0, "acc_b_heavy": 45.14, "ttk_h_heavy": 0.86, "stk_h_heavy": 5.0, "acc_h_heavy": 30.09, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "medium", "name": "CL-40 (DIRECT)", "type": "Grenade Launcher", "meta": false, "firing_mode": "Single", "dmg_body": 105.0, "dmg_head": null, "dmg_env": 300.0, "rpm": 75.0, "mag": 5.0, "rt_tactical": null, "rt_empty": 3.95, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": 525.0, "dpm_head": null, "dps_body": 131.25, "dps_head": null, "ttk_b_light": 0.8, "stk_b_light": 2.0, "acc_b_light": 33.33, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.6, "stk_b_med": 3.0, "acc_b_med": 47.62, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 2.4, "stk_b_heavy": 4.0, "acc_b_heavy": 61.9, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 10.0.0", "status": "Verified", "notes": "Self damage multiplier is 1.4. Damage modifier at the edge of the inner blast radius is 75% and outer blast radius is 10%."}, {"cls": "medium", "name": "CL-40 (SPLASH)", "type": "Grenade Launcher", "meta": false, "firing_mode": "Single", "dmg_body": 90.0, "dmg_head": null, "dmg_env": null, "rpm": 75.0, "mag": 5.0, "rt_tactical": null, "rt_empty": 3.95, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": 450.0, "dpm_head": null, "dps_body": 112.5, "dps_head": null, "ttk_b_light": 0.8, "stk_b_light": 2.0, "acc_b_light": 38.89, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.6, "stk_b_med": 3.0, "acc_b_med": 55.56, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 2.4, "stk_b_heavy": 4.0, "acc_b_heavy": 72.22, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 10.0.0", "status": "Verified", "notes": "Inner blast radius for maximum damage is 0.6m."}, {"cls": "medium", "name": "FAMAS", "type": "Assault Riffle", "meta": false, "firing_mode": "Burst", "dmg_body": 24.0, "dmg_head": 36.0, "dmg_env": 9.0, "rpm": 1080.0, "mag": 27.0, "rt_tactical": 2.15, "rt_empty": 2.4, "dd_min": 35.0, "dd_max": 42.5, "dd_mod": 50.0, "burst_shots": 3.0, "burst_delay": 0.27, "dpm_body": 648.0, "dpm_head": 972.0, "dps_body": 432.0, "dps_head": 648.0, "ttk_b_light": 0.93, "stk_b_light": 8.0, "acc_b_light": 27.01, "ttk_h_light": 0.49, "stk_h_light": 5.0, "acc_h_light": 18.0, "ttk_b_med": 1.37, "stk_b_med": 11.0, "acc_b_med": 38.58, "ttk_h_med": 0.87, "stk_h_med": 7.0, "acc_h_med": 25.72, "ttk_b_heavy": 1.8, "stk_b_heavy": 14.0, "acc_b_heavy": 50.15, "ttk_h_heavy": 1.31, "stk_h_heavy": 10.0, "acc_h_heavy": 33.44, "last_update": "Ver. 11.3.0", "status": "Under Verification", "notes": "Recoil recovery begins at 0.24s. Recoil recovery speed is 0.8."}, {"cls": "medium", "name": "FCAR", "type": "Assault Riffle", "meta": false, "firing_mode": "Automatic", "dmg_body": 25.0, "dmg_head": 37.5, "dmg_env": 11.0, "rpm": 500.0, "mag": 20.0, "rt_tactical": 2.1, "rt_empty": 2.1, "dd_min": 35.0, "dd_max": 40.0, "dd_mod": 55.0, "burst_shots": null, "burst_delay": null, "dpm_body": 500.0, "dpm_head": 750.0, "dps_body": 208.33, "dps_head": 312.5, "ttk_b_light": 0.72, "stk_b_light": 7.0, "acc_b_light": 35.0, "ttk_h_light": 0.48, "stk_h_light": 5.0, "acc_h_light": 23.33, "ttk_b_med": 1.08, "stk_b_med": 10.0, "acc_b_med": 50.0, "ttk_h_med": 0.72, "stk_h_med": 7.0, "acc_h_med": 33.33, "ttk_b_heavy": 1.44, "stk_b_heavy": 13.0, "acc_b_heavy": 65.0, "ttk_h_heavy": 0.96, "stk_h_heavy": 9.0, "acc_h_heavy": 43.33, "last_update": "Ver. 11.0.0", "status": "Verified", "notes": ""}, {"cls": "medium", "name": "MODEL 1887", "type": "Shotgun", "meta": false, "firing_mode": "Single", "dmg_body": 117.0, "dmg_head": null, "dmg_env": 54.0, "rpm": 69.0, "mag": 7.0, "rt_tactical": null, "rt_empty": 4.3, "dd_min": 20.0, "dd_max": 30.0, "dd_mod": 65.0, "burst_shots": null, "burst_delay": null, "dpm_body": 819.0, "dpm_head": null, "dps_body": 134.55, "dps_head": null, "ttk_b_light": 0.87, "stk_b_light": 2.0, "acc_b_light": 21.37, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.74, "stk_b_med": 3.0, "acc_b_med": 30.53, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 1.74, "stk_b_heavy": 3.0, "acc_b_heavy": 39.68, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 11.0.0", "status": "Verified", "notes": "Firing the weapon will cancel the reload animation. Tactical reload intro animation duration is 1.5s."}, {"cls": "medium", "name": "P90", "type": "SMG", "meta": true, "firing_mode": "Automatic", "dmg_body": 15.0, "dmg_head": 22.5, "dmg_env": 6.0, "rpm": 900.0, "mag": 50.0, "rt_tactical": 2.45, "rt_empty": 2.7, "dd_min": 18.0, "dd_max": 24.0, "dd_mod": 62.0, "burst_shots": null, "burst_delay": null, "dpm_body": 750.0, "dpm_head": 1125.0, "dps_body": 225.0, "dps_head": 337.5, "ttk_b_light": 0.73, "stk_b_light": 12.0, "acc_b_light": 23.33, "ttk_h_light": 0.47, "stk_h_light": 8.0, "acc_h_light": 15.56, "ttk_b_med": 1.07, "stk_b_med": 17.0, "acc_b_med": 33.33, "ttk_h_med": 0.73, "stk_h_med": 12.0, "acc_h_med": 22.22, "ttk_b_heavy": 1.4, "stk_b_heavy": 22.0, "acc_b_heavy": 43.33, "ttk_h_heavy": 0.93, "stk_h_heavy": 15.0, "acc_h_heavy": 28.89, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "medium", "name": "PIKE .556", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 50.0, "dmg_head": 75.0, "dmg_env": 22.0, "rpm": 200.0, "mag": 12.0, "rt_tactical": 2.1, "rt_empty": 3.25, "dd_min": 40.0, "dd_max": 50.0, "dd_mod": 80.0, "burst_shots": null, "burst_delay": null, "dpm_body": 600.0, "dpm_head": 900.0, "dps_body": 166.67, "dps_head": 250.0, "ttk_b_light": 0.9, "stk_b_light": 4.0, "acc_b_light": 29.17, "ttk_h_light": 0.6, "stk_h_light": 3.0, "acc_h_light": 19.44, "ttk_b_med": 1.2, "stk_b_med": 5.0, "acc_b_med": 41.67, "ttk_h_med": 0.9, "stk_h_med": 4.0, "acc_h_med": 27.78, "ttk_b_heavy": 1.8, "stk_b_heavy": 7.0, "acc_b_heavy": 54.17, "ttk_h_heavy": 1.2, "stk_h_heavy": 5.0, "acc_h_heavy": 36.11, "last_update": "Ver. 12.1.0", "status": "Verified", "notes": "Vs. Heavy, Pike is stronger than Repeater for ranged duals."}, {"cls": "medium", "name": "R.357", "type": "Handgun", "meta": true, "firing_mode": "Single", "dmg_body": 76.0, "dmg_head": 152.0, "dmg_env": 25.0, "rpm": 140.0, "mag": 6.0, "rt_tactical": 2.2, "rt_empty": 2.5, "dd_min": 27.5, "dd_max": 44.0, "dd_mod": 40.0, "burst_shots": null, "burst_delay": null, "dpm_body": 456.0, "dpm_head": 912.0, "dps_body": 177.33, "dps_head": 354.67, "ttk_b_light": 0.86, "stk_b_light": 3.0, "acc_b_light": 38.38, "ttk_h_light": 0.43, "stk_h_light": 2.0, "acc_h_light": 19.19, "ttk_b_med": 1.29, "stk_b_med": 4.0, "acc_b_med": 54.82, "ttk_h_med": 0.43, "stk_h_med": 2.0, "acc_h_med": 27.41, "ttk_b_heavy": 1.71, "stk_b_heavy": 5.0, "acc_b_heavy": 71.27, "ttk_h_heavy": 0.86, "stk_h_heavy": 3.0, "acc_h_heavy": 35.64, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "heavy", "name": ".50 AKIMBO", "type": "Handgun", "meta": false, "firing_mode": "Single", "dmg_body": 46.0, "dmg_head": 92.0, "dmg_env": 18.0, "rpm": 230.0, "mag": 14.0, "rt_tactical": 2.2, "rt_empty": 3.0, "dd_min": 32.0, "dd_max": 39.0, "dd_mod": 50.0, "burst_shots": null, "burst_delay": null, "dpm_body": 644.0, "dpm_head": 1288.0, "dps_body": 176.33, "dps_head": 352.67, "ttk_b_light": 0.78, "stk_b_light": 4.0, "acc_b_light": 27.17, "ttk_h_light": 0.26, "stk_h_light": 2.0, "acc_h_light": 13.59, "ttk_b_med": 1.3, "stk_b_med": 6.0, "acc_b_med": 38.82, "ttk_h_med": 0.52, "stk_h_med": 3.0, "acc_h_med": 19.41, "ttk_b_heavy": 1.83, "stk_b_heavy": 8.0, "acc_b_heavy": 50.47, "ttk_h_heavy": 0.78, "stk_h_heavy": 4.0, "acc_h_heavy": 25.23, "last_update": "Ver. 11.0.0", "status": "Verified", "notes": "Max bullet dispersion when firing from the hip is 7.5. Default hip fire dispersion when firing from the hip while standing is 1.8. Default dispersion when firing from the hip while moving is 2.2."}, {"cls": "heavy", "name": "BFR TITAN", "type": "Handgun", "meta": true, "firing_mode": "Single", "dmg_body": 95.0, "dmg_head": 142.5, "dmg_env": 95.0, "rpm": 80.5, "mag": 5.0, "rt_tactical": null, "rt_empty": 5.0, "dd_min": 25.0, "dd_max": 40.0, "dd_mod": 70.0, "burst_shots": null, "burst_delay": null, "dpm_body": 475.0, "dpm_head": 712.5, "dps_body": 127.46, "dps_head": 191.19, "ttk_b_light": 0.75, "stk_b_light": 2.0, "acc_b_light": 36.84, "ttk_h_light": 0.75, "stk_h_light": 2.0, "acc_h_light": 24.56, "ttk_b_med": 1.49, "stk_b_med": 3.0, "acc_b_med": 52.63, "ttk_h_med": 0.75, "stk_h_med": 2.0, "acc_h_med": 35.09, "ttk_b_heavy": 2.24, "stk_b_heavy": 4.0, "acc_b_heavy": 68.42, "ttk_h_heavy": 1.49, "stk_h_heavy": 3.0, "acc_h_heavy": 45.61, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "heavy", "name": "FLAMETHROWER", "type": "Miscellaneous", "meta": false, "firing_mode": "Automatic", "dmg_body": 26.0, "dmg_head": null, "dmg_env": 2.0, "rpm": 170.0, "mag": 30.0, "rt_tactical": 3.55, "rt_empty": 3.55, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": 780.0, "dpm_head": null, "dps_body": 73.67, "dps_head": null, "ttk_b_light": 2.12, "stk_b_light": 7.0, "acc_b_light": 22.44, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 3.18, "stk_b_med": 10.0, "acc_b_med": 32.05, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 4.24, "stk_b_heavy": 13.0, "acc_b_heavy": 41.67, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 12.3.0", "status": "Verified", "notes": "Max. damage from burning is 45 per \"on fire\". Damage per burning tick is 15."}, {"cls": "heavy", "name": "KS-23", "type": "Shotgun", "meta": false, "firing_mode": "Single", "dmg_body": 100.0, "dmg_head": null, "dmg_env": 1000.0, "rpm": 78.0, "mag": 6.0, "rt_tactical": null, "rt_empty": 5.55, "dd_min": 12.0, "dd_max": 22.0, "dd_mod": 58.0, "burst_shots": null, "burst_delay": null, "dpm_body": 600.0, "dpm_head": null, "dps_body": 130.0, "dps_head": null, "ttk_b_light": 0.77, "stk_b_light": 2.0, "acc_b_light": 29.17, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.54, "stk_b_med": 3.0, "acc_b_med": 41.67, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 2.31, "stk_b_heavy": 4.0, "acc_b_heavy": 54.17, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": "Shots are hitscan within 25m, and then they become projectiles afterwards (with a projectile velocity of 280 m/s).  Firing the weapon will cancel the reload animation."}, {"cls": "heavy", "name": "LEWIS GUN", "type": "LMG", "meta": true, "firing_mode": "Automatic", "dmg_body": 23.0, "dmg_head": 34.5, "dmg_env": 12.0, "rpm": 520.0, "mag": 47.0, "rt_tactical": 3.25, "rt_empty": 3.55, "dd_min": 35.0, "dd_max": 40.0, "dd_mod": 67.0, "burst_shots": null, "burst_delay": null, "dpm_body": 1081.0, "dpm_head": 1621.5, "dps_body": 199.33, "dps_head": 299.0, "ttk_b_light": 0.81, "stk_b_light": 8.0, "acc_b_light": 16.19, "ttk_h_light": 0.58, "stk_h_light": 6.0, "acc_h_light": 10.79, "ttk_b_med": 1.15, "stk_b_med": 11.0, "acc_b_med": 23.13, "ttk_h_med": 0.81, "stk_h_med": 8.0, "acc_h_med": 15.42, "ttk_b_heavy": 1.62, "stk_b_heavy": 15.0, "acc_b_heavy": 30.06, "ttk_h_heavy": 1.04, "stk_h_heavy": 10.0, "acc_h_heavy": 20.04, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "heavy", "name": "M134 MINIGUN", "type": "HMG", "meta": false, "firing_mode": "Automatic", "dmg_body": 11.0, "dmg_head": 14.63, "dmg_env": 35.0, "rpm": 1500.0, "mag": 300.0, "rt_tactical": 5.0, "rt_empty": 5.25, "dd_min": 30.0, "dd_max": 50.0, "dd_mod": 53.0, "burst_shots": null, "burst_delay": null, "dpm_body": 3300.0, "dpm_head": 4389.0, "dps_body": 275.0, "dps_head": 365.75, "ttk_b_light": 0.6, "stk_b_light": 16.0, "acc_b_light": 5.3, "ttk_h_light": 0.44, "stk_h_light": 12.0, "acc_h_light": 3.99, "ttk_b_med": 0.88, "stk_b_med": 23.0, "acc_b_med": 7.58, "ttk_h_med": 0.68, "stk_h_med": 18.0, "acc_h_med": 5.7, "ttk_b_heavy": 1.16, "stk_b_heavy": 30.0, "acc_b_heavy": 9.85, "ttk_h_heavy": 0.88, "stk_h_heavy": 23.0, "acc_h_heavy": 7.4, "last_update": "Ver. 11.0.0", "status": "Verified", "notes": "TTK assumes a full ramp-up to maximum fire rate.  Major levels of spread make it 100% accurate only at extreme close range (within ~5m).  Spin-up time until minimum fire rate (500 RPM) is 0.90s.  Spin-up time until maximum fire rate is 1.60s. Environmental damage is 35."}, {"cls": "heavy", "name": "M60", "type": "LMG", "meta": false, "firing_mode": "Automatic", "dmg_body": 20.0, "dmg_head": 30.0, "dmg_env": 9.0, "rpm": 600.0, "mag": 70.0, "rt_tactical": 3.55, "rt_empty": 3.55, "dd_min": 25.0, "dd_max": 35.0, "dd_mod": 50.0, "burst_shots": null, "burst_delay": null, "dpm_body": 1400.0, "dpm_head": 2100.0, "dps_body": 200.0, "dps_head": 300.0, "ttk_b_light": 0.8, "stk_b_light": 9.0, "acc_b_light": 12.5, "ttk_h_light": 0.5, "stk_h_light": 6.0, "acc_h_light": 8.33, "ttk_b_med": 1.2, "stk_b_med": 13.0, "acc_b_med": 17.86, "ttk_h_med": 0.8, "stk_h_med": 9.0, "acc_h_med": 11.9, "ttk_b_heavy": 1.6, "stk_b_heavy": 17.0, "acc_b_heavy": 23.21, "ttk_h_heavy": 1.0, "stk_h_heavy": 11.0, "acc_h_heavy": 15.48, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "heavy", "name": "MGL-32", "type": "Grenade Launcher", "meta": false, "firing_mode": "Single", "dmg_body": 97.0, "dmg_head": null, "dmg_env": 300.0, "rpm": 90.0, "mag": 6.0, "rt_tactical": 2.85, "rt_empty": 3.1, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": 582.0, "dpm_head": null, "dps_body": 145.5, "dps_head": null, "ttk_b_light": 0.67, "stk_b_light": 2.0, "acc_b_light": 30.07, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.33, "stk_b_med": 3.0, "acc_b_med": 42.96, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 2.0, "stk_b_heavy": 4.0, "acc_b_heavy": 55.84, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": "Rounds detonate on impact after the 1st bounce. Maximum fuse time = 2.5s. Explosion inner radius = 2m. Damage modifier at the edge of the inner blast radius is 90% and outer blast radius is 12%."}, {"cls": "heavy", "name": "SA1216", "type": "Shotgun", "meta": true, "firing_mode": "Automatic/Single", "dmg_body": 72.0, "dmg_head": null, "dmg_env": 12.0, "rpm": 190.0, "mag": null, "rt_tactical": 2.35, "rt_empty": null, "dd_min": 12.5, "dd_max": 20.0, "dd_mod": 67.0, "burst_shots": null, "burst_delay": null, "dpm_body": null, "dpm_head": null, "dps_body": 228.0, "dps_head": null, "ttk_b_light": 0.63, "stk_b_light": 3.0, "acc_b_light": 60.76, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 0.95, "stk_b_med": 4.0, "acc_b_med": 86.81, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 1.26, "stk_b_heavy": 5.0, "acc_b_heavy": 112.85, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": "Quick reload triggers when you have emptied a magazine, and when you have a \"quick magazine\" available (indicated by the bars near your ammo count). Otherwise, a normal reload will occur. REQ ACC is only taking into account first charger (not the full magazine)"}, {"cls": "heavy", "name": "SHAK-50", "type": "Assault Riffle", "meta": true, "firing_mode": "Automatic", "dmg_body": 30.0, "dmg_head": 45.0, "dmg_env": 14.0, "rpm": 420.0, "mag": 20.0, "rt_tactical": 2.4, "rt_empty": 3.2, "dd_min": 15.0, "dd_max": 25.0, "dd_mod": 67.0, "burst_shots": null, "burst_delay": null, "dpm_body": 600.0, "dpm_head": 900.0, "dps_body": 210.0, "dps_head": 315.0, "ttk_b_light": 0.71, "stk_b_light": 6.0, "acc_b_light": 29.17, "ttk_h_light": 0.43, "stk_h_light": 4.0, "acc_h_light": 19.44, "ttk_b_med": 1.14, "stk_b_med": 9.0, "acc_b_med": 41.67, "ttk_h_med": 0.71, "stk_h_med": 6.0, "acc_h_med": 27.78, "ttk_b_heavy": 1.43, "stk_b_heavy": 11.0, "acc_b_heavy": 54.17, "ttk_h_heavy": 1.0, "stk_h_heavy": 8.0, "acc_h_heavy": 36.11, "last_update": "Ver. 7.3.0", "status": "Verified", "notes": "Shoots 2 bullets per round, spread out horizontally, each dealing 15 damage."}];
+let LATEST = [{"cls": "light", "name": "93R", "type": "Handgun", "meta": false, "firing_mode": "Burst", "dmg_body": 24.0, "dmg_head": 36.0, "dmg_env": 7.0, "rpm": 1000.0, "mag": 27.0, "rt_tactical": 1.45, "rt_empty": 1.75, "dd_min": 30.0, "dd_max": 37.5, "dd_mod": 50.0, "burst_shots": 3.0, "burst_delay": 0.275, "dpm_body": 648.0, "dpm_head": 972.0, "dps_body": 400.0, "dps_head": 600.0, "ttk_b_light": 0.97, "stk_b_light": 8.0, "acc_b_light": 27.01, "ttk_h_light": 0.52, "stk_h_light": 5.0, "acc_h_light": 18.0, "ttk_b_med": 1.43, "stk_b_med": 11.0, "acc_b_med": 38.58, "ttk_h_med": 0.91, "stk_h_med": 7.0, "acc_h_med": 25.72, "ttk_b_heavy": 1.88, "stk_b_heavy": 14.0, "acc_b_heavy": 50.15, "ttk_h_heavy": 1.37, "stk_h_heavy": 10.0, "acc_h_heavy": 33.44, "last_update": "Ver. 11.0.0", "status": "Under Verification", "notes": ""}, {"cls": "light", "name": "ARN-220", "type": "Assault Riffle", "meta": true, "firing_mode": "Automatic", "dmg_body": 17.0, "dmg_head": 25.5, "dmg_env": 3.5, "rpm": 750.0, "mag": null, "rt_tactical": 2.45, "rt_empty": null, "dd_min": 37.5, "dd_max": 45.0, "dd_mod": 72.0, "burst_shots": null, "burst_delay": null, "dpm_body": null, "dpm_head": null, "dps_body": 212.5, "dps_head": 318.75, "ttk_b_light": 0.8, "stk_b_light": 11.0, "acc_b_light": 34.31, "ttk_h_light": 0.48, "stk_h_light": 7.0, "acc_h_light": 22.88, "ttk_b_med": 1.12, "stk_b_med": 15.0, "acc_b_med": 49.02, "ttk_h_med": 0.72, "stk_h_med": 10.0, "acc_h_med": 32.68, "ttk_b_heavy": 1.52, "stk_b_heavy": 20.0, "acc_b_heavy": 63.73, "ttk_h_heavy": 0.96, "stk_h_heavy": 13.0, "acc_h_heavy": 42.48, "last_update": "Ver. 11.6.0", "status": "Verified", "notes": "Quick reload triggers when you have emptied a magazine, and when you have a \"quick magazine\" available (indicated by the bars near your ammo count). Otherwise, a normal reload will occur. REQ ACC is only taking into account first charger (not the full magazine)"}, {"cls": "light", "name": "LH1", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 40.0, "dmg_head": 80.0, "dmg_env": 14.0, "rpm": 280.0, "mag": 15.0, "rt_tactical": 1.95, "rt_empty": 2.85, "dd_min": 35.0, "dd_max": 45.0, "dd_mod": 72.0, "burst_shots": null, "burst_delay": null, "dpm_body": 600.0, "dpm_head": 1200.0, "dps_body": 186.67, "dps_head": 373.33, "ttk_b_light": 0.86, "stk_b_light": 5.0, "acc_b_light": 29.17, "ttk_h_light": 0.43, "stk_h_light": 3.0, "acc_h_light": 14.58, "ttk_b_med": 1.29, "stk_b_med": 7.0, "acc_b_med": 41.67, "ttk_h_med": 0.64, "stk_h_med": 4.0, "acc_h_med": 20.83, "ttk_b_heavy": 1.71, "stk_b_heavy": 9.0, "acc_b_heavy": 54.17, "ttk_h_heavy": 0.86, "stk_h_heavy": 5.0, "acc_h_heavy": 27.08, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "light", "name": "M11", "type": "SMG", "meta": true, "firing_mode": "Automatic", "dmg_body": 16.0, "dmg_head": 24.0, "dmg_env": 5.0, "rpm": 1000.0, "mag": 40.0, "rt_tactical": 1.55, "rt_empty": 1.85, "dd_min": 10.0, "dd_max": 20.0, "dd_mod": 45.0, "burst_shots": null, "burst_delay": null, "dpm_body": 640.0, "dpm_head": 960.0, "dps_body": 266.67, "dps_head": 400.0, "ttk_b_light": 0.6, "stk_b_light": 11.0, "acc_b_light": 27.34, "ttk_h_light": 0.42, "stk_h_light": 8.0, "acc_h_light": 18.23, "ttk_b_med": 0.9, "stk_b_med": 16.0, "acc_b_med": 39.06, "ttk_h_med": 0.6, "stk_h_med": 11.0, "acc_h_med": 26.04, "ttk_b_heavy": 1.2, "stk_b_heavy": 21.0, "acc_b_heavy": 50.78, "ttk_h_heavy": 0.78, "stk_h_heavy": 14.0, "acc_h_heavy": 33.85, "last_update": "Ver. 11.6.0", "status": "Verified", "notes": "Recoil & Bullet dispersion (ADS + Hipfire) is increased since update ver. 11.6.0"}, {"cls": "light", "name": "M26 MATTER", "type": "Shotgun", "meta": false, "firing_mode": "Single", "dmg_body": 121.0, "dmg_head": null, "dmg_env": 99.0, "rpm": 85.0, "mag": 8.0, "rt_tactical": 2.05, "rt_empty": 2.45, "dd_min": 15.0, "dd_max": 25.0, "dd_mod": 64.0, "burst_shots": null, "burst_delay": null, "dpm_body": 968.0, "dpm_head": null, "dps_body": 171.42, "dps_head": null, "ttk_b_light": 0.71, "stk_b_light": 2.0, "acc_b_light": 18.08, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.41, "stk_b_med": 3.0, "acc_b_med": 25.83, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 1.41, "stk_b_heavy": 3.0, "acc_b_heavy": 33.57, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 10.6.0", "status": "Verified", "notes": ""}, {"cls": "light", "name": "RECURVE BOW (UNCHARGED)", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 60.0, "dmg_head": 90.0, "dmg_env": 12.125, "rpm": 78.0, "mag": null, "rt_tactical": null, "rt_empty": null, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": null, "dpm_head": null, "dps_body": 78.0, "dps_head": 117.0, "ttk_b_light": 1.54, "stk_b_light": 3.0, "acc_b_light": null, "ttk_h_light": 0.77, "stk_h_light": 2.0, "acc_h_light": null, "ttk_b_med": 3.08, "stk_b_med": 5.0, "acc_b_med": null, "ttk_h_med": 1.54, "stk_h_med": 3.0, "acc_h_med": null, "ttk_b_heavy": 3.85, "stk_b_heavy": 6.0, "acc_b_heavy": null, "ttk_h_heavy": 2.31, "stk_h_heavy": 4.0, "acc_h_heavy": null, "last_update": "Ver. 11.6.0", "status": "Verified", "notes": "Takes ~160ms to fire the 1st shot. TTK does not account for projectile travel time. Rate of fire overall is 103 RPM. Minimum draw time is 0.08s."}, {"cls": "light", "name": "RECURVE BOW (CHARGED)", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 126.0, "dmg_head": 189.0, "dmg_env": 25.0, "rpm": 48.0, "mag": null, "rt_tactical": null, "rt_empty": null, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": null, "dpm_head": null, "dps_body": 100.8, "dps_head": 151.2, "ttk_b_light": 1.25, "stk_b_light": 2.0, "acc_b_light": null, "ttk_h_light": 0.0, "stk_h_light": 1.0, "acc_h_light": null, "ttk_b_med": 1.25, "stk_b_med": 2.0, "acc_b_med": null, "ttk_h_med": 1.25, "stk_h_med": 2.0, "acc_h_med": null, "ttk_b_heavy": 2.5, "stk_b_heavy": 3.0, "acc_b_heavy": null, "ttk_h_heavy": 1.25, "stk_h_heavy": 2.0, "acc_h_heavy": null, "last_update": "Ver. 11.6.0", "status": "Verified", "notes": "Takes ~640ms to charge a shot.  TTK does not account for projectile travel time.  Damage increases from 60 to 126 (continuously) based on how long this weapon was charged."}, {"cls": "light", "name": "SH1900", "type": "Shotgun", "meta": false, "firing_mode": "Single", "dmg_body": 180.0, "dmg_head": null, "dmg_env": 90.0, "rpm": 80.0, "mag": 2.0, "rt_tactical": 2.2, "rt_empty": 2.6, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": 360.0, "dpm_head": null, "dps_body": 240.0, "dps_head": null, "ttk_b_light": 0.0, "stk_b_light": 1.0, "acc_b_light": 48.61, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 0.75, "stk_b_med": 2.0, "acc_b_med": 69.44, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 0.75, "stk_b_heavy": 2.0, "acc_b_heavy": 90.28, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 10.0.0", "status": "Verified", "notes": "Damage per bullet is 12*15 = 180 damage."}, {"cls": "light", "name": "SR-84", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 122.0, "dmg_head": 244.0, "dmg_env": 27.0, "rpm": 40.0, "mag": 6.0, "rt_tactical": 1.95, "rt_empty": 3.35, "dd_min": 80.0, "dd_max": 100.0, "dd_mod": 75.0, "burst_shots": null, "burst_delay": null, "dpm_body": 732.0, "dpm_head": 1464.0, "dps_body": 81.33, "dps_head": 162.67, "ttk_b_light": 1.5, "stk_b_light": 2.0, "acc_b_light": 23.91, "ttk_h_light": 0.0, "stk_h_light": 1.0, "acc_h_light": 11.95, "ttk_b_med": 3.0, "stk_b_med": 3.0, "acc_b_med": 34.15, "ttk_h_med": 1.5, "stk_h_med": 2.0, "acc_h_med": 17.08, "ttk_b_heavy": 3.0, "stk_b_heavy": 3.0, "acc_b_heavy": 44.4, "ttk_h_heavy": 1.5, "stk_h_heavy": 2.0, "acc_h_heavy": 22.2, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": "Bullets are hitscan up until 40m, and then converted into projectiles afterwards. Air drag on the projectile is 0.08. Initial projectile velocity is 240 m/s. Gravity multiplier on the projectile is 0.55."}, {"cls": "light", "name": "THROWING KNIVES", "type": "Miscellaneous", "meta": false, "firing_mode": "Automatic/Burst", "dmg_body": 60.0, "dmg_head": 90.0, "dmg_env": 20.0, "rpm": 545.45, "mag": null, "rt_tactical": null, "rt_empty": null, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": 2.0, "burst_delay": 0.59, "dpm_body": null, "dpm_head": null, "dps_body": 545.45, "dps_head": 818.18, "ttk_b_light": 0.81, "stk_b_light": 3.0, "acc_b_light": null, "ttk_h_light": 0.11, "stk_h_light": 2.0, "acc_h_light": null, "ttk_b_med": 1.62, "stk_b_med": 5.0, "acc_b_med": null, "ttk_h_med": 0.81, "stk_h_med": 3.0, "acc_h_med": null, "ttk_b_heavy": 1.73, "stk_b_heavy": 6.0, "acc_b_heavy": null, "ttk_h_heavy": 0.92, "stk_h_heavy": 4.0, "acc_h_heavy": null, "last_update": "Ver. 4.0.0", "status": "Under Verification", "notes": "TTK does not account for projectile travel time, or the initial delay when throwing the knives.  It represents more of a \"time-to-death\" calculation, if anything."}, {"cls": "light", "name": "THROWING KNIVES (ALT.)", "type": "Miscellaneous", "meta": false, "firing_mode": "Single", "dmg_body": 140.0, "dmg_head": 210.0, "dmg_env": 40.0, "rpm": 27.7, "mag": null, "rt_tactical": null, "rt_empty": null, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": null, "dpm_head": null, "dps_body": 64.63, "dps_head": 96.95, "ttk_b_light": 2.17, "stk_b_light": 2.0, "acc_b_light": null, "ttk_h_light": 0.0, "stk_h_light": 1.0, "acc_h_light": null, "ttk_b_med": 2.17, "stk_b_med": 2.0, "acc_b_med": null, "ttk_h_med": 2.17, "stk_h_med": 2.0, "acc_h_med": null, "ttk_b_heavy": 4.33, "stk_b_heavy": 3.0, "acc_b_heavy": null, "ttk_h_heavy": 2.17, "stk_h_heavy": 2.0, "acc_h_heavy": null, "last_update": "Ver. 4.0.0", "status": "Verified", "notes": "TTK does not account for projectile travel time, or the initial delay when throwing the knives.  It represents more of a \"time-to-death\" calculation, if anything."}, {"cls": "light", "name": "V9S", "type": "Handgun", "meta": true, "firing_mode": "Single", "dmg_body": 38.0, "dmg_head": 57.0, "dmg_env": 8.0, "rpm": 360.0, "mag": 18.0, "rt_tactical": 1.25, "rt_empty": 1.5, "dd_min": 15.0, "dd_max": 20.0, "dd_mod": 65.0, "burst_shots": null, "burst_delay": null, "dpm_body": 684.0, "dpm_head": 1026.0, "dps_body": 228.0, "dps_head": 342.0, "ttk_b_light": 0.67, "stk_b_light": 5.0, "acc_b_light": 25.58, "ttk_h_light": 0.5, "stk_h_light": 4.0, "acc_h_light": 17.06, "ttk_b_med": 1.0, "stk_b_med": 7.0, "acc_b_med": 36.55, "ttk_h_med": 0.67, "stk_h_med": 5.0, "acc_h_med": 24.37, "ttk_b_heavy": 1.33, "stk_b_heavy": 9.0, "acc_b_heavy": 47.51, "ttk_h_heavy": 0.83, "stk_h_heavy": 6.0, "acc_h_heavy": 31.68, "last_update": "Ver. 10.6.0", "status": "Verified", "notes": ""}, {"cls": "light", "name": "XP-54", "type": "SMG", "meta": true, "firing_mode": "Automatic", "dmg_body": 16.0, "dmg_head": 24.0, "dmg_env": 8.0, "rpm": 880.0, "mag": 34.0, "rt_tactical": 2.25, "rt_empty": 2.5, "dd_min": 22.5, "dd_max": 32.5, "dd_mod": 52.0, "burst_shots": null, "burst_delay": null, "dpm_body": 544.0, "dpm_head": 816.0, "dps_body": 234.67, "dps_head": 352.0, "ttk_b_light": 0.68, "stk_b_light": 11.0, "acc_b_light": 32.17, "ttk_h_light": 0.48, "stk_h_light": 8.0, "acc_h_light": 21.45, "ttk_b_med": 1.02, "stk_b_med": 16.0, "acc_b_med": 45.96, "ttk_h_med": 0.68, "stk_h_med": 11.0, "acc_h_med": 30.64, "ttk_b_heavy": 1.36, "stk_b_heavy": 21.0, "acc_b_heavy": 59.74, "ttk_h_heavy": 0.89, "stk_h_heavy": 14.0, "acc_h_heavy": 39.83, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "medium", "name": "AKM", "type": "Assault Riffle", "meta": false, "firing_mode": "Automatic", "dmg_body": 21.0, "dmg_head": 31.5, "dmg_env": 10.0, "rpm": 600.0, "mag": 36.0, "rt_tactical": 2.35, "rt_empty": 2.35, "dd_min": 30.0, "dd_max": 37.5, "dd_mod": 55.0, "burst_shots": null, "burst_delay": null, "dpm_body": 756.0, "dpm_head": 1134.0, "dps_body": 210.0, "dps_head": 315.0, "ttk_b_light": 0.8, "stk_b_light": 9.0, "acc_b_light": 23.15, "ttk_h_light": 0.5, "stk_h_light": 6.0, "acc_h_light": 15.43, "ttk_b_med": 1.1, "stk_b_med": 12.0, "acc_b_med": 33.07, "ttk_h_med": 0.7, "stk_h_med": 8.0, "acc_h_med": 22.05, "ttk_b_heavy": 1.5, "stk_b_heavy": 16.0, "acc_b_heavy": 42.99, "ttk_h_heavy": 1.0, "stk_h_heavy": 11.0, "acc_h_heavy": 28.66, "last_update": "Ver. 11.6.0", "status": "Verified", "notes": ""}, {"cls": "medium", "name": "CB-01 REPEATER", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 85.0, "dmg_head": 127.5, "dmg_env": 25.0, "rpm": 82.0, "mag": 8.0, "rt_tactical": null, "rt_empty": 5.05, "dd_min": 35.0, "dd_max": 40.0, "dd_mod": 66.0, "burst_shots": null, "burst_delay": null, "dpm_body": 680.0, "dpm_head": 1020.0, "dps_body": 116.17, "dps_head": 174.25, "ttk_b_light": 1.46, "stk_b_light": 3.0, "acc_b_light": 25.74, "ttk_h_light": 0.73, "stk_h_light": 2.0, "acc_h_light": 17.16, "ttk_b_med": 1.46, "stk_b_med": 3.0, "acc_b_med": 36.76, "ttk_h_med": 0.73, "stk_h_med": 2.0, "acc_h_med": 24.51, "ttk_b_heavy": 2.2, "stk_b_heavy": 4.0, "acc_b_heavy": 47.79, "ttk_h_heavy": 1.46, "stk_h_heavy": 3.0, "acc_h_heavy": 31.86, "last_update": "Ver. 12.1.0", "status": "Verified", "notes": "Firing the weapon will cancel the reload animation. Aim down sights zoom time is 0.24s. Vs. Medium, Repeater is stronger than Pike for ranged duals."}, {"cls": "medium", "name": "CERBERUS 12GA", "type": "Shotgun", "meta": false, "firing_mode": "Single", "dmg_body": 117.0, "dmg_head": null, "dmg_env": 91.0, "rpm": 100.0, "mag": 3.0, "rt_tactical": null, "rt_empty": 2.95, "dd_min": 10.0, "dd_max": 17.5, "dd_mod": 63.0, "burst_shots": null, "burst_delay": null, "dpm_body": 351.0, "dpm_head": null, "dps_body": 195.0, "dps_head": null, "ttk_b_light": 0.6, "stk_b_light": 2.0, "acc_b_light": 49.86, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.2, "stk_b_med": 3.0, "acc_b_med": 71.23, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 1.2, "stk_b_heavy": 3.0, "acc_b_heavy": 92.59, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 12.3.0", "status": "Verified", "notes": "Deals 117 damage on hit (9 x 13 pellets), and then an extra ~45 damage from the fire DoT that last for ~2 seconds.  DoT does not stack, and it resets on every hit. The burn value is ~15 damage/seconds."}, {"cls": "medium", "name": "CHIMERA-XB", "type": "Marksman Riffle", "meta": true, "firing_mode": "Sinle", "dmg_body": 48.0, "dmg_head": 72.0, "dmg_env": 12.0, "rpm": 280.0, "mag": 15.0, "rt_tactical": 2.15, "rt_empty": 2.15, "dd_min": 17.5, "dd_max": 27.5, "dd_mod": 53.0, "burst_shots": null, "burst_delay": null, "dpm_body": 720.0, "dpm_head": 1080.0, "dps_body": 224.0, "dps_head": 336.0, "ttk_b_light": 0.64, "stk_b_light": 4.0, "acc_b_light": 24.31, "ttk_h_light": 0.43, "stk_h_light": 3.0, "acc_h_light": 16.2, "ttk_b_med": 1.07, "stk_b_med": 6.0, "acc_b_med": 34.72, "ttk_h_med": 0.64, "stk_h_med": 4.0, "acc_h_med": 23.15, "ttk_b_heavy": 1.29, "stk_b_heavy": 7.0, "acc_b_heavy": 45.14, "ttk_h_heavy": 0.86, "stk_h_heavy": 5.0, "acc_h_heavy": 30.09, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "medium", "name": "CL-40 (DIRECT)", "type": "Grenade Launcher", "meta": false, "firing_mode": "Single", "dmg_body": 105.0, "dmg_head": null, "dmg_env": 300.0, "rpm": 75.0, "mag": 5.0, "rt_tactical": null, "rt_empty": 3.95, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": 525.0, "dpm_head": null, "dps_body": 131.25, "dps_head": null, "ttk_b_light": 0.8, "stk_b_light": 2.0, "acc_b_light": 33.33, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.6, "stk_b_med": 3.0, "acc_b_med": 47.62, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 2.4, "stk_b_heavy": 4.0, "acc_b_heavy": 61.9, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 10.0.0", "status": "Verified", "notes": "Self damage multiplier is 1.4. Damage modifier at the edge of the inner blast radius is 75% and outer blast radius is 10%."}, {"cls": "medium", "name": "CL-40 (SPLASH)", "type": "Grenade Launcher", "meta": false, "firing_mode": "Single", "dmg_body": 90.0, "dmg_head": null, "dmg_env": null, "rpm": 75.0, "mag": 5.0, "rt_tactical": null, "rt_empty": 3.95, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": 450.0, "dpm_head": null, "dps_body": 112.5, "dps_head": null, "ttk_b_light": 0.8, "stk_b_light": 2.0, "acc_b_light": 38.89, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.6, "stk_b_med": 3.0, "acc_b_med": 55.56, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 2.4, "stk_b_heavy": 4.0, "acc_b_heavy": 72.22, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 10.0.0", "status": "Verified", "notes": "Inner blast radius for maximum damage is 0.6m."}, {"cls": "medium", "name": "FAMAS", "type": "Assault Riffle", "meta": false, "firing_mode": "Burst", "dmg_body": 24.0, "dmg_head": 36.0, "dmg_env": 9.0, "rpm": 1080.0, "mag": 27.0, "rt_tactical": 2.15, "rt_empty": 2.4, "dd_min": 35.0, "dd_max": 42.5, "dd_mod": 50.0, "burst_shots": 3.0, "burst_delay": 0.27, "dpm_body": 648.0, "dpm_head": 972.0, "dps_body": 432.0, "dps_head": 648.0, "ttk_b_light": 0.93, "stk_b_light": 8.0, "acc_b_light": 27.01, "ttk_h_light": 0.49, "stk_h_light": 5.0, "acc_h_light": 18.0, "ttk_b_med": 1.37, "stk_b_med": 11.0, "acc_b_med": 38.58, "ttk_h_med": 0.87, "stk_h_med": 7.0, "acc_h_med": 25.72, "ttk_b_heavy": 1.8, "stk_b_heavy": 14.0, "acc_b_heavy": 50.15, "ttk_h_heavy": 1.31, "stk_h_heavy": 10.0, "acc_h_heavy": 33.44, "last_update": "Ver. 11.3.0", "status": "Under Verification", "notes": "Recoil recovery begins at 0.24s. Recoil recovery speed is 0.8."}, {"cls": "medium", "name": "FCAR", "type": "Assault Riffle", "meta": false, "firing_mode": "Automatic", "dmg_body": 25.0, "dmg_head": 37.5, "dmg_env": 11.0, "rpm": 500.0, "mag": 20.0, "rt_tactical": 2.1, "rt_empty": 2.1, "dd_min": 35.0, "dd_max": 40.0, "dd_mod": 55.0, "burst_shots": null, "burst_delay": null, "dpm_body": 500.0, "dpm_head": 750.0, "dps_body": 208.33, "dps_head": 312.5, "ttk_b_light": 0.72, "stk_b_light": 7.0, "acc_b_light": 35.0, "ttk_h_light": 0.48, "stk_h_light": 5.0, "acc_h_light": 23.33, "ttk_b_med": 1.08, "stk_b_med": 10.0, "acc_b_med": 50.0, "ttk_h_med": 0.72, "stk_h_med": 7.0, "acc_h_med": 33.33, "ttk_b_heavy": 1.44, "stk_b_heavy": 13.0, "acc_b_heavy": 65.0, "ttk_h_heavy": 0.96, "stk_h_heavy": 9.0, "acc_h_heavy": 43.33, "last_update": "Ver. 11.0.0", "status": "Verified", "notes": ""}, {"cls": "medium", "name": "MODEL 1887", "type": "Shotgun", "meta": false, "firing_mode": "Single", "dmg_body": 117.0, "dmg_head": null, "dmg_env": 54.0, "rpm": 69.0, "mag": 7.0, "rt_tactical": null, "rt_empty": 4.3, "dd_min": 20.0, "dd_max": 30.0, "dd_mod": 65.0, "burst_shots": null, "burst_delay": null, "dpm_body": 819.0, "dpm_head": null, "dps_body": 134.55, "dps_head": null, "ttk_b_light": 0.87, "stk_b_light": 2.0, "acc_b_light": 21.37, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.74, "stk_b_med": 3.0, "acc_b_med": 30.53, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 1.74, "stk_b_heavy": 3.0, "acc_b_heavy": 39.68, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 11.0.0", "status": "Verified", "notes": "Firing the weapon will cancel the reload animation. Tactical reload intro animation duration is 1.5s."}, {"cls": "medium", "name": "P90", "type": "SMG", "meta": true, "firing_mode": "Automatic", "dmg_body": 15.0, "dmg_head": 22.5, "dmg_env": 6.0, "rpm": 900.0, "mag": 50.0, "rt_tactical": 2.45, "rt_empty": 2.7, "dd_min": 18.0, "dd_max": 24.0, "dd_mod": 62.0, "burst_shots": null, "burst_delay": null, "dpm_body": 750.0, "dpm_head": 1125.0, "dps_body": 225.0, "dps_head": 337.5, "ttk_b_light": 0.73, "stk_b_light": 12.0, "acc_b_light": 23.33, "ttk_h_light": 0.47, "stk_h_light": 8.0, "acc_h_light": 15.56, "ttk_b_med": 1.07, "stk_b_med": 17.0, "acc_b_med": 33.33, "ttk_h_med": 0.73, "stk_h_med": 12.0, "acc_h_med": 22.22, "ttk_b_heavy": 1.4, "stk_b_heavy": 22.0, "acc_b_heavy": 43.33, "ttk_h_heavy": 0.93, "stk_h_heavy": 15.0, "acc_h_heavy": 28.89, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "medium", "name": "PIKE .556", "type": "Marksman Riffle", "meta": false, "firing_mode": "Single", "dmg_body": 50.0, "dmg_head": 75.0, "dmg_env": 22.0, "rpm": 200.0, "mag": 12.0, "rt_tactical": 2.1, "rt_empty": 3.25, "dd_min": 40.0, "dd_max": 50.0, "dd_mod": 80.0, "burst_shots": null, "burst_delay": null, "dpm_body": 600.0, "dpm_head": 900.0, "dps_body": 166.67, "dps_head": 250.0, "ttk_b_light": 0.9, "stk_b_light": 4.0, "acc_b_light": 29.17, "ttk_h_light": 0.6, "stk_h_light": 3.0, "acc_h_light": 19.44, "ttk_b_med": 1.2, "stk_b_med": 5.0, "acc_b_med": 41.67, "ttk_h_med": 0.9, "stk_h_med": 4.0, "acc_h_med": 27.78, "ttk_b_heavy": 1.8, "stk_b_heavy": 7.0, "acc_b_heavy": 54.17, "ttk_h_heavy": 1.2, "stk_h_heavy": 5.0, "acc_h_heavy": 36.11, "last_update": "Ver. 12.1.0", "status": "Verified", "notes": "Vs. Heavy, Pike is stronger than Repeater for ranged duals."}, {"cls": "medium", "name": "R.357", "type": "Handgun", "meta": true, "firing_mode": "Single", "dmg_body": 76.0, "dmg_head": 152.0, "dmg_env": 25.0, "rpm": 140.0, "mag": 6.0, "rt_tactical": 2.2, "rt_empty": 2.5, "dd_min": 27.5, "dd_max": 44.0, "dd_mod": 40.0, "burst_shots": null, "burst_delay": null, "dpm_body": 456.0, "dpm_head": 912.0, "dps_body": 177.33, "dps_head": 354.67, "ttk_b_light": 0.86, "stk_b_light": 3.0, "acc_b_light": 38.38, "ttk_h_light": 0.43, "stk_h_light": 2.0, "acc_h_light": 19.19, "ttk_b_med": 1.29, "stk_b_med": 4.0, "acc_b_med": 54.82, "ttk_h_med": 0.43, "stk_h_med": 2.0, "acc_h_med": 27.41, "ttk_b_heavy": 1.71, "stk_b_heavy": 5.0, "acc_b_heavy": 71.27, "ttk_h_heavy": 0.86, "stk_h_heavy": 3.0, "acc_h_heavy": 35.64, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "heavy", "name": ".50 AKIMBO", "type": "Handgun", "meta": false, "firing_mode": "Single", "dmg_body": 46.0, "dmg_head": 92.0, "dmg_env": 18.0, "rpm": 230.0, "mag": 14.0, "rt_tactical": 2.2, "rt_empty": 3.0, "dd_min": 32.0, "dd_max": 39.0, "dd_mod": 50.0, "burst_shots": null, "burst_delay": null, "dpm_body": 644.0, "dpm_head": 1288.0, "dps_body": 176.33, "dps_head": 352.67, "ttk_b_light": 0.78, "stk_b_light": 4.0, "acc_b_light": 27.17, "ttk_h_light": 0.26, "stk_h_light": 2.0, "acc_h_light": 13.59, "ttk_b_med": 1.3, "stk_b_med": 6.0, "acc_b_med": 38.82, "ttk_h_med": 0.52, "stk_h_med": 3.0, "acc_h_med": 19.41, "ttk_b_heavy": 1.83, "stk_b_heavy": 8.0, "acc_b_heavy": 50.47, "ttk_h_heavy": 0.78, "stk_h_heavy": 4.0, "acc_h_heavy": 25.23, "last_update": "Ver. 11.0.0", "status": "Verified", "notes": "Max bullet dispersion when firing from the hip is 7.5. Default hip fire dispersion when firing from the hip while standing is 1.8. Default dispersion when firing from the hip while moving is 2.2."}, {"cls": "heavy", "name": "BFR TITAN", "type": "Handgun", "meta": true, "firing_mode": "Single", "dmg_body": 95.0, "dmg_head": 142.5, "dmg_env": 95.0, "rpm": 80.5, "mag": 5.0, "rt_tactical": null, "rt_empty": 5.0, "dd_min": 25.0, "dd_max": 40.0, "dd_mod": 70.0, "burst_shots": null, "burst_delay": null, "dpm_body": 475.0, "dpm_head": 712.5, "dps_body": 127.46, "dps_head": 191.19, "ttk_b_light": 0.75, "stk_b_light": 2.0, "acc_b_light": 36.84, "ttk_h_light": 0.75, "stk_h_light": 2.0, "acc_h_light": 24.56, "ttk_b_med": 1.49, "stk_b_med": 3.0, "acc_b_med": 52.63, "ttk_h_med": 0.75, "stk_h_med": 2.0, "acc_h_med": 35.09, "ttk_b_heavy": 2.24, "stk_b_heavy": 4.0, "acc_b_heavy": 68.42, "ttk_h_heavy": 1.49, "stk_h_heavy": 3.0, "acc_h_heavy": 45.61, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "heavy", "name": "FLAMETHROWER", "type": "Miscellaneous", "meta": false, "firing_mode": "Automatic", "dmg_body": 26.0, "dmg_head": null, "dmg_env": 2.0, "rpm": 170.0, "mag": 30.0, "rt_tactical": 3.55, "rt_empty": 3.55, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": 780.0, "dpm_head": null, "dps_body": 73.67, "dps_head": null, "ttk_b_light": 2.12, "stk_b_light": 7.0, "acc_b_light": 22.44, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 3.18, "stk_b_med": 10.0, "acc_b_med": 32.05, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 4.24, "stk_b_heavy": 13.0, "acc_b_heavy": 41.67, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 12.3.0", "status": "Verified", "notes": "Max. damage from burning is 45 per \"on fire\". Damage per burning tick is 15."}, {"cls": "heavy", "name": "KS-23", "type": "Shotgun", "meta": false, "firing_mode": "Single", "dmg_body": 100.0, "dmg_head": null, "dmg_env": 1000.0, "rpm": 78.0, "mag": 6.0, "rt_tactical": null, "rt_empty": 5.55, "dd_min": 12.0, "dd_max": 22.0, "dd_mod": 58.0, "burst_shots": null, "burst_delay": null, "dpm_body": 600.0, "dpm_head": null, "dps_body": 130.0, "dps_head": null, "ttk_b_light": 0.77, "stk_b_light": 2.0, "acc_b_light": 29.17, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.54, "stk_b_med": 3.0, "acc_b_med": 41.67, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 2.31, "stk_b_heavy": 4.0, "acc_b_heavy": 54.17, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": "Shots are hitscan within 25m, and then they become projectiles afterwards (with a projectile velocity of 280 m/s).  Firing the weapon will cancel the reload animation."}, {"cls": "heavy", "name": "LEWIS GUN", "type": "LMG", "meta": true, "firing_mode": "Automatic", "dmg_body": 23.0, "dmg_head": 34.5, "dmg_env": 12.0, "rpm": 520.0, "mag": 47.0, "rt_tactical": 3.25, "rt_empty": 3.55, "dd_min": 35.0, "dd_max": 40.0, "dd_mod": 67.0, "burst_shots": null, "burst_delay": null, "dpm_body": 1081.0, "dpm_head": 1621.5, "dps_body": 199.33, "dps_head": 299.0, "ttk_b_light": 0.81, "stk_b_light": 8.0, "acc_b_light": 16.19, "ttk_h_light": 0.58, "stk_h_light": 6.0, "acc_h_light": 10.79, "ttk_b_med": 1.15, "stk_b_med": 11.0, "acc_b_med": 23.13, "ttk_h_med": 0.81, "stk_h_med": 8.0, "acc_h_med": 15.42, "ttk_b_heavy": 1.62, "stk_b_heavy": 15.0, "acc_b_heavy": 30.06, "ttk_h_heavy": 1.04, "stk_h_heavy": 10.0, "acc_h_heavy": 20.04, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "heavy", "name": "M134 MINIGUN", "type": "HMG", "meta": false, "firing_mode": "Automatic", "dmg_body": 11.0, "dmg_head": 14.63, "dmg_env": 35.0, "rpm": 1500.0, "mag": 300.0, "rt_tactical": 5.0, "rt_empty": 5.25, "dd_min": 30.0, "dd_max": 50.0, "dd_mod": 53.0, "burst_shots": null, "burst_delay": null, "dpm_body": 3300.0, "dpm_head": 4389.0, "dps_body": 275.0, "dps_head": 365.75, "ttk_b_light": 0.6, "stk_b_light": 16.0, "acc_b_light": 5.3, "ttk_h_light": 0.44, "stk_h_light": 12.0, "acc_h_light": 3.99, "ttk_b_med": 0.88, "stk_b_med": 23.0, "acc_b_med": 7.58, "ttk_h_med": 0.68, "stk_h_med": 18.0, "acc_h_med": 5.7, "ttk_b_heavy": 1.16, "stk_b_heavy": 30.0, "acc_b_heavy": 9.85, "ttk_h_heavy": 0.88, "stk_h_heavy": 23.0, "acc_h_heavy": 7.4, "last_update": "Ver. 11.0.0", "status": "Verified", "notes": "TTK assumes a full ramp-up to maximum fire rate.  Major levels of spread make it 100% accurate only at extreme close range (within ~5m).  Spin-up time until minimum fire rate (500 RPM) is 0.90s.  Spin-up time until maximum fire rate is 1.60s. Environmental damage is 35."}, {"cls": "heavy", "name": "M60", "type": "LMG", "meta": false, "firing_mode": "Automatic", "dmg_body": 20.0, "dmg_head": 30.0, "dmg_env": 9.0, "rpm": 600.0, "mag": 70.0, "rt_tactical": 3.55, "rt_empty": 3.55, "dd_min": 25.0, "dd_max": 35.0, "dd_mod": 50.0, "burst_shots": null, "burst_delay": null, "dpm_body": 1400.0, "dpm_head": 2100.0, "dps_body": 200.0, "dps_head": 300.0, "ttk_b_light": 0.8, "stk_b_light": 9.0, "acc_b_light": 12.5, "ttk_h_light": 0.5, "stk_h_light": 6.0, "acc_h_light": 8.33, "ttk_b_med": 1.2, "stk_b_med": 13.0, "acc_b_med": 17.86, "ttk_h_med": 0.8, "stk_h_med": 9.0, "acc_h_med": 11.9, "ttk_b_heavy": 1.6, "stk_b_heavy": 17.0, "acc_b_heavy": 23.21, "ttk_h_heavy": 1.0, "stk_h_heavy": 11.0, "acc_h_heavy": 15.48, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": ""}, {"cls": "heavy", "name": "MGL-32", "type": "Grenade Launcher", "meta": false, "firing_mode": "Single", "dmg_body": 97.0, "dmg_head": null, "dmg_env": 300.0, "rpm": 90.0, "mag": 6.0, "rt_tactical": 2.85, "rt_empty": 3.1, "dd_min": null, "dd_max": null, "dd_mod": null, "burst_shots": null, "burst_delay": null, "dpm_body": 582.0, "dpm_head": null, "dps_body": 145.5, "dps_head": null, "ttk_b_light": 0.67, "stk_b_light": 2.0, "acc_b_light": 30.07, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 1.33, "stk_b_med": 3.0, "acc_b_med": 42.96, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 2.0, "stk_b_heavy": 4.0, "acc_b_heavy": 55.84, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": "Rounds detonate on impact after the 1st bounce. Maximum fuse time = 2.5s. Explosion inner radius = 2m. Damage modifier at the edge of the inner blast radius is 90% and outer blast radius is 12%."}, {"cls": "heavy", "name": "SA1216", "type": "Shotgun", "meta": true, "firing_mode": "Automatic/Single", "dmg_body": 72.0, "dmg_head": null, "dmg_env": 12.0, "rpm": 190.0, "mag": null, "rt_tactical": 2.35, "rt_empty": null, "dd_min": 12.5, "dd_max": 20.0, "dd_mod": 67.0, "burst_shots": null, "burst_delay": null, "dpm_body": null, "dpm_head": null, "dps_body": 228.0, "dps_head": null, "ttk_b_light": 0.63, "stk_b_light": 3.0, "acc_b_light": 60.76, "ttk_h_light": null, "stk_h_light": null, "acc_h_light": null, "ttk_b_med": 0.95, "stk_b_med": 4.0, "acc_b_med": 86.81, "ttk_h_med": null, "stk_h_med": null, "acc_h_med": null, "ttk_b_heavy": 1.26, "stk_b_heavy": 5.0, "acc_b_heavy": 112.85, "ttk_h_heavy": null, "stk_h_heavy": null, "acc_h_heavy": null, "last_update": "Ver. 12.0.0", "status": "Verified", "notes": "Quick reload triggers when you have emptied a magazine, and when you have a \"quick magazine\" available (indicated by the bars near your ammo count). Otherwise, a normal reload will occur. REQ ACC is only taking into account first charger (not the full magazine)"}, {"cls": "heavy", "name": "SHAK-50", "type": "Assault Riffle", "meta": true, "firing_mode": "Automatic", "dmg_body": 30.0, "dmg_head": 45.0, "dmg_env": 14.0, "rpm": 420.0, "mag": 20.0, "rt_tactical": 2.4, "rt_empty": 3.2, "dd_min": 15.0, "dd_max": 25.0, "dd_mod": 67.0, "burst_shots": null, "burst_delay": null, "dpm_body": 600.0, "dpm_head": 900.0, "dps_body": 210.0, "dps_head": 315.0, "ttk_b_light": 0.71, "stk_b_light": 6.0, "acc_b_light": 29.17, "ttk_h_light": 0.43, "stk_h_light": 4.0, "acc_h_light": 19.44, "ttk_b_med": 1.14, "stk_b_med": 9.0, "acc_b_med": 41.67, "ttk_h_med": 0.71, "stk_h_med": 6.0, "acc_h_med": 27.78, "ttk_b_heavy": 1.43, "stk_b_heavy": 11.0, "acc_b_heavy": 54.17, "ttk_h_heavy": 1.0, "stk_h_heavy": 8.0, "acc_h_heavy": 36.11, "last_update": "Ver. 7.3.0", "status": "Verified", "notes": "Shoots 2 bullets per round, spread out horizontally, each dealing 15 damage."}];
 let W = LATEST;
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/1CAlLb9ebPWtXdsRKocSeIddDGa4xy5Hn3pzz4poGpD0/gviz/tq?tqx=out:csv&gid=276374354";
 const $ = s => document.querySelector(s);
+function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function selfTTK(w){ return w.cls==="light" ? w.ttk_b_light : w.cls==="medium" ? w.ttk_b_med : w.ttk_b_heavy; }
+function stkSelf(w){ return w.cls==="light" ? w.stk_b_light : w.cls==="medium" ? w.stk_b_med : w.stk_b_heavy; }
 
 /* ---------- state (initialized from URL hash) ---------- */
 const state = { cls:"all", q:"", sort:"name", cmp:[], vsCls:"own" };
@@ -228,7 +281,7 @@ const state = { cls:"all", q:"", sort:"name", cmp:[], vsCls:"own" };
   const c = p.get("cls"), q = p.get("q"), s = p.get("sort"), cmp = p.get("cmp");
   if (["all","light","medium","heavy"].includes(c)) state.cls = c;
   if (q) state.q = q.toLowerCase();
-  if (["name","dps_body","dpm_body","rpm"].includes(s)) state.sort = s;
+  if (["name","dps_body","dpm_body","rpm","ttk","rt_tactical"].includes(s)) state.sort = s;
   if (cmp) state.cmp = cmp.split("|").filter(n => W.some(w=>w.name===n)).slice(0,2);
 })();
 function syncURL(){
@@ -282,12 +335,11 @@ function parseWeapons(rows){
 
 
 const CLS_LABEL = {light:"Light", medium:"Medium", heavy:"Heavy"};
-function selfTTK(w){ return w.cls==="light" ? w.ttk_b_light : w.cls==="medium" ? w.ttk_b_med : w.ttk_b_heavy; }
 function fmt(v, pct){
   if (v === null || v === "") return "-";
   let s = (typeof v === "number") ? (Number.isInteger(v) ? String(v) : v.toFixed(2)) : String(v);
   if (pct && s !== "-") s += "%";
-  return s;
+  return esc(s);
 }
 
 /* ---------- tabs / search / sort ---------- */
@@ -302,17 +354,32 @@ $("#tabs").addEventListener("click", e => {
   const b = e.target.closest(".tab"); if(!b) return;
   state.cls = b.dataset.k; renderAll(); syncURL();
 });
-$("#q").addEventListener("input", e => { state.q = e.target.value.toLowerCase().trim(); render(); syncURL(); });
+let searchTimer=null;
+$("#q").addEventListener("input", e => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(()=>{ state.q = e.target.value.toLowerCase().trim(); render(); syncURL(); },150);
+});
 $("#sort").addEventListener("change", e => { state.sort = e.target.value; render(); syncURL(); });
 
-function cmpVal(w, key){ const v = w[key]; return (v===null||v==="") ? -Infinity : v; }
+function sortVal(w, key){
+  if (key === "ttk") return selfTTK(w);
+  if (key === "rt_tactical") return w.rt_tactical;
+  const v = w[key];
+  return (v===null||v==="") ? null : v;
+}
 function filtered(){
   let list = W.filter(w =>
     (state.cls==="all" || w.cls===state.cls) &&
     w.name.toLowerCase().includes(state.q));
-  if (state.sort === "name") list = list.slice().sort((a,b)=>a.name.localeCompare(b.name));
-  else list = list.slice().sort((a,b)=>cmpVal(b,state.sort)-cmpVal(a,state.sort));
-  return list;
+  if (state.sort === "name") return list.slice().sort((a,b)=>a.name.localeCompare(b.name));
+  const asc = state.sort==="ttk" || state.sort==="rt_tactical";
+  return list.slice().sort((a,b)=>{
+    const va=sortVal(a,state.sort), vb=sortVal(b,state.sort);
+    if (va===null && vb===null) return a.name.localeCompare(b.name);
+    if (va===null) return 1;
+    if (vb===null) return -1;
+    return asc ? va-vb : vb-va;
+  });
 }
 
 /* ---------- cards ---------- */
@@ -320,12 +387,12 @@ function cardHTML(w){
   const ttk = selfTTK(w);
   const statusPill = w.status === "Verified"
     ? '<span class="pill verified">Verified</span>' : '<span class="pill unver">Under Verification</span>';
-  return `<article class="card ${state.cmp.includes(w.name)?"cmp-on":""}" data-name="${w.name}">
+  return `<article class="card ${state.cmp.includes(w.name)?"cmp-on":""}" data-name="${esc(w.name)}">
     <div class="card-head">
       <span class="dot d-${w.cls}"></span>
-      <span class="wname">${w.name}</span>
+      <span class="wname">${esc(w.name)}</span>
       ${w.meta ? '<span class="meta-badge">⭐ META</span>' : ""}
-      <span class="wtype">${w.type || "?"}</span>
+      <span class="wtype">${esc(w.type || "?")}</span>
     </div>
     <div class="statgrid">
       <div class="stat"><span class="k">DPS body</span><span class="v">${fmt(w.dps_body)}</span></div>
@@ -339,8 +406,8 @@ function cardHTML(w){
     <details>
       <summary>Full stats &amp; notes</summary>
       ${fullTable(w)}
-      ${w.notes ? `<div class="notes">${w.notes}</div>` : ""}
-      <div class="upd">Last update: ${w.last_update||"-"} · ${statusPill}</div>
+      ${w.notes ? `<div class="notes">${esc(w.notes)}</div>` : ""}
+      <div class="upd">Last update: ${esc(w.last_update||"-")} · ${statusPill}</div>
     </details>
   </article>`;
 }
@@ -381,34 +448,49 @@ function render(){
     b.addEventListener("click", () => toggleCmp(b.closest(".card").dataset.name));
   });
 }
-function renderAll(){ renderTabs(); render(); drawScatter(); drawBars(); }
+function renderStatStrip(){
+  const meta = W.filter(w=>w.meta).length;
+  const ver = W.filter(w=>w.status==="Verified").length;
+  $("#statstrip").innerHTML = `<span class="chip"><b>${W.length}</b>weapons</span><span class="chip"><b>${meta}</b>meta</span><span class="chip"><b>${ver}</b>verified</span>`;
+}
+function renderAll(){ renderTabs(); render(); drawScatter(); drawBars(); renderStatStrip(); }
 
 /* ---------- compare tray / modal ---------- */
+let lastFocus=null;
+function showTrayHint(msg){
+  const h=$("#tray-hint"); h.textContent=msg; h.hidden=false;
+  clearTimeout(h._t); h._t=setTimeout(()=>{ h.hidden=true; },2600);
+}
 function toggleCmp(name){
   const i = state.cmp.indexOf(name);
   if (i >= 0) state.cmp.splice(i,1);
-  else { if (state.cmp.length === 2) state.cmp.shift(); state.cmp.push(name); }
+  else {
+    if (state.cmp.length === 2){ state.cmp.shift(); showTrayHint("Only two weapons can be compared — oldest dropped."); }
+    state.cmp.push(name);
+  }
   render(); updateTray(); syncURL();
 }
 function updateTray(){
   $("#tray").classList.toggle("show", state.cmp.length > 0);
-  $("#tray-chips").innerHTML = state.cmp.map(n=>`<span class="chip">${n}</span>`).join("");
+  $("#tray-chips").innerHTML = state.cmp.map(n=>`<span class="chip">${esc(n)}</span>`).join("");
+  $("#tray-go").disabled = state.cmp.length < 2;
 }
 $("#tray-clear").addEventListener("click", () => { state.cmp = []; render(); updateTray(); syncURL(); });
 $("#tray-go").addEventListener("click", openCompare);
 
 const CMP_ROWS = [
-  ["Damage (body)","dmg_body",1],["Damage (head)","dmg_head",1],["Damage (env)","dmg_env",1],
-  ["RPM","rpm",1],["Magazine","mag",1],
-  ["RT tactical (s)","rt_tactical",0],["RT empty (s)","rt_empty",0],
-  ["DPM body","dpm_body",1],["DPM head","dpm_head",1],
-  ["DPS body","dps_body",1],["DPS head","dps_head",1]
+  ["Damage (body)", w=>w.dmg_body, true],["Damage (head)", w=>w.dmg_head, true],["Damage (env)", w=>w.dmg_env, true],
+  ["RPM", w=>w.rpm, true],["Magazine", w=>w.mag, true],
+  ["RT tactical (s)", w=>w.rt_tactical, false],["RT empty (s)", w=>w.rt_empty, false],
+  ["DPM body", w=>w.dpm_body, true],["DPM head", w=>w.dpm_head, true],
+  ["DPS body", w=>w.dps_body, true],["DPS head", w=>w.dps_head, true],
+  ["TTK (own class)", w=>selfTTK(w), false],["STK (own class)", w=>stkSelf(w), false]
 ];
 function openCompare(){
   const [a,b] = state.cmp.map(n => W.find(w=>w.name===n));
   if (!a || !b) return;
-  const rows = CMP_ROWS.map(([label,key,higher]) => {
-    const va=a[key], vb=b[key];
+  const rows = CMP_ROWS.map(([label,get,higher]) => {
+    const va=get(a), vb=get(b);
     let clsA="", clsB="";
     if (va!==null && vb!==null && typeof va==="number" && typeof vb==="number"){
       const aBetter = higher ? va>vb : va<vb;
@@ -421,18 +503,33 @@ function openCompare(){
   const st = w => w.cls==="light"?"Light":w.cls==="medium"?"Medium":"Heavy";
   $("#modal-panel").innerHTML = `
     <div class="modal-head">
-      <span class="wname">${a.name}</span><span style="color:var(--muted)">vs</span>
-      <span class="wname">${b.name}</span>
-      <button class="close-x" id="mclose">✕</button>
+      <span class="wname" id="modal-title">${esc(a.name)} <span style="color:var(--muted);font-size:14px">vs</span> ${esc(b.name)}</span>
+      <button class="close-x" id="mclose" aria-label="Close compare view">✕</button>
     </div>
-    <table class="cmp"><thead><tr><th>Stat</th><th>${a.name} (${st(a)})</th><th>${b.name} (${st(b)})</th></tr></thead>
+    <table class="cmp"><thead><tr><th>Stat</th><th>${esc(a.name)} (${st(a)})</th><th>${esc(b.name)} (${st(b)})</th></tr></thead>
     <tbody>${rows}</tbody></table>
-    <p style="color:var(--muted);font-size:11px;margin-top:10px">Green = better for that stat · Red = worse. TTK and reload time are “lower is better”.</p>`;
+    <p style="color:var(--muted);font-size:11px;margin-top:10px">Green = better for that stat · Red = worse. TTK, reload time and shots-to-kill are “lower is better”.</p>`;
   $("#modal").classList.add("show");
-  $("#mclose").addEventListener("click", () => $("#modal").classList.remove("show"));
+  lastFocus=document.activeElement;
+  $("#mclose").addEventListener("click", () => closeModal());
+  $("#mclose").focus();
 }
-$("#modal").addEventListener("click", e => { if (e.target.id==="modal") $("#modal").classList.remove("show"); });
-document.addEventListener("keydown", e => { if (e.key==="Escape") $("#modal").classList.remove("show"); });
+function closeModal(){
+  $("#modal").classList.remove("show");
+  if (lastFocus && lastFocus.focus) lastFocus.focus();
+}
+$("#modal").addEventListener("click", e => { if (e.target.id==="modal") closeModal(); });
+document.addEventListener("keydown", e => {
+  if (e.key==="Escape" && $("#modal").classList.contains("show")) closeModal();
+  if (e.key==="Tab" && $("#modal").classList.contains("show")){
+    const panel=$("#modal-panel");
+    const focusables=[...panel.querySelectorAll("button,[href],input,select,textarea,[tabindex]:not([tabindex='-1'])")].filter(el=>!el.disabled);
+    if (!focusables.length) return;
+    const first=focusables[0], last=focusables[focusables.length-1];
+    if (e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+  }
+});
 
 /* ---------- analytics: scatter ---------- */
 const CLS_COLOR = {light:"#4da3ff", medium:"#b07cff", heavy:"#ff5c5c"};
@@ -448,25 +545,31 @@ function drawScatter(){
   ctx.clearRect(0,0,Wpx,Hpx);
   const vs = state.vsCls;
   const data = W.filter(w => (state.cls==="all"||w.cls===state.cls) && w.dps_body!=null && ttkFor(w,vs)!=null);
-  if (!data.length){ ctx.fillStyle="#98a0b6"; ctx.font="13px Inter"; ctx.fillText("No data for this filter.", 20, Hpx/2); scPts=[]; return; }
+  if (!data.length){ ctx.fillStyle="#aeb7ca"; ctx.font="13px Inter"; ctx.textAlign="left"; ctx.fillText("No data for this filter.", 20, Hpx/2); scPts=[]; return; }
   const maxX = Math.max(...data.map(w=>ttkFor(w,vs)))*1.15;
   const maxY = Math.max(...data.map(w=>effDps(w)))*1.15;
-  const L=54, R=14, T=16, B=34;
+  const L=54, R=14, T=16, B=46;
   const px = v => L + (v/maxX)*(Wpx-L-R);
   const py = v => Hpx-B - (v/maxY)*(Hpx-T-B);
   // grid
-  ctx.strokeStyle="rgba(39,43,58,.6)"; ctx.fillStyle="#98a0b6"; ctx.font="11px Inter";
+  ctx.strokeStyle="rgba(39,43,58,.6)"; ctx.fillStyle="#aeb7ca"; ctx.font="11px Inter";
   for(let i=0;i<=5;i++){
     const gx = L + (Wpx-L-R)*i/5, gy = Hpx-B - (Hpx-T-B)*i/5;
     ctx.beginPath(); ctx.moveTo(gx,T); ctx.lineTo(gx,Hpx-B); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(L,gy); ctx.lineTo(Wpx-R,gy); ctx.stroke();
-    ctx.fillText(String(Math.round(maxX*i/5)), gx-14, Hpx-B+16);
-    if(i>0) ctx.fillText(String(Math.round(maxY*i/5)), 8, gy+4);
+    ctx.textAlign="center";
+    ctx.fillText(String(Math.round(maxX*i/5)), gx, Hpx-B+16);
+    if(i>0){ ctx.textAlign="left"; ctx.fillText(String(Math.round(maxY*i/5)), 8, gy+4); }
   }
-  const vsLabel = vs==="own" ? "own class" : vs; ctx.fillText("TTK body (s, vs "+vsLabel+") →", Wpx/2-80, Hpx-8);
-  ctx.save(); ctx.translate(16,T+8); ctx.rotate(-Math.PI/2); ctx.fillText("DPS body →",0,0); ctx.restore();
-  scPts = data.map(w=>({name:w.name, cls:w.cls, x:px(ttkFor(w,vs)), y:py(effDps(w)), ttk:ttkFor(w,vs), dps:effDps(w)}));
-  scPts.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,5,0,7); ctx.fillStyle=CLS_COLOR[p.cls]; ctx.fill(); });
+  const vsLabel = vs==="own" ? "own class" : vs;
+  ctx.textAlign="center";
+  ctx.fillText("TTK body (s, vs "+vsLabel+") →", Wpx/2, Hpx-6);
+  ctx.save(); ctx.translate(16,T+8); ctx.rotate(-Math.PI/2); ctx.textAlign="left"; ctx.fillText("DPS body →",0,0); ctx.restore();
+  scPts = data.map(w=>({name:w.name, cls:w.cls, meta:!!w.meta, x:px(ttkFor(w,vs)), y:py(effDps(w)), ttk:ttkFor(w,vs), dps:effDps(w)}));
+  scPts.forEach(p=>{
+    if (p.meta){ ctx.beginPath(); ctx.arc(p.x,p.y,8,0,7); ctx.strokeStyle="#f4c14d"; ctx.lineWidth=2; ctx.stroke(); }
+    ctx.beginPath(); ctx.arc(p.x,p.y,5,0,7); ctx.fillStyle=CLS_COLOR[p.cls]; ctx.fill();
+  });
 }
 const tip = document.createElement("div"); tip.className="tip"; document.body.appendChild(tip);
 $("#scatter").addEventListener("mousemove", e=>{
@@ -476,8 +579,12 @@ $("#scatter").addEventListener("mousemove", e=>{
   scPts.forEach(p=>{ const d=(p.x-lx)**2+(p.y-ly)**2; if(d<bd){bd=d;best=p;} });
   if (best && bd < 144){
     tip.style.display="block";
-    tip.style.left=(e.clientX+14)+"px"; tip.style.top=(e.clientY+10)+"px";
-    tip.innerHTML=`<b>${best.name}</b> (${CLS_LABEL[best.cls]})<br>Time-to-Kill: ${best.ttk.toFixed(2)}s<br>DPS (damage/sec): ${best.dps.toFixed(0)}`;
+    tip.innerHTML=`<b>${esc(best.name)}</b> (${CLS_LABEL[best.cls]})<br>Time-to-Kill: ${best.ttk.toFixed(2)}s<br>DPS (damage/sec): ${best.dps.toFixed(0)}`;
+    const tw=tip.offsetWidth, th=tip.offsetHeight, pad=8;
+    let left=e.clientX+14, top=e.clientY+12;
+    if (left+tw+pad > window.innerWidth) left = e.clientX - tw - 14;
+    if (top+th+pad > window.innerHeight) top = e.clientY - th - 12;
+    tip.style.left=Math.max(8,left)+"px"; tip.style.top=Math.max(8,top)+"px";
   } else { tip.style.display="none"; }
 });
 $("#scatter").addEventListener("mouseleave", ()=>{ tip.style.display="none"; });
@@ -499,7 +606,7 @@ function barRows(list, key, asc){
   return items.map(w=>{
     const pctW = (w[key]/max*100).toFixed(1);
     const col = CLS_COLOR[w.cls];
-    return `<div class="brow"><span class="bname">${w.name}</span><div class="btrack"><div class="bfill" style="width:${pctW}%;background:${col}"></div></div><span class="bval">${fmt(w[key])}</span></div>`;
+    return `<div class="brow"><span class="bname">${esc(w.name)}${w.meta?" ⭐":""}</span><div class="btrack"><div class="bfill" style="width:${pctW}%;background:${col}"></div></div><span class="bval">${fmt(w[key])}</span></div>`;
   }).join("");
 }
 function drawBars(){
@@ -518,10 +625,37 @@ const DIFF_FIELDS = ["dmg_body","dmg_head","dmg_env","rpm","mag","rt_tactical","
   "ttk_b_light","stk_b_light","acc_b_light","ttk_h_light","stk_h_light","acc_h_light",
   "ttk_b_med","stk_b_med","acc_b_med","ttk_h_med","stk_h_med","acc_h_med",
   "ttk_b_heavy","stk_b_heavy","acc_b_heavy","ttk_h_heavy","stk_h_heavy","acc_h_heavy"];
+const DIFF_LABELS = {
+  dmg_body:"Damage body", dmg_head:"Damage head", dmg_env:"Damage env",
+  rpm:"RPM", mag:"Magazine", rt_tactical:"RT tactical (s)", rt_empty:"RT empty (s)",
+  dd_min:"DD min range (m)", dd_max:"DD max range (m)", dd_mod:"DD modifier @ max",
+  burst_shots:"Shots per burst", burst_delay:"Burst delay (s)",
+  dpm_body:"DPM body", dpm_head:"DPM head", dps_body:"DPS body", dps_head:"DPS head",
+  ttk_b_light:"TTK body vs Light (s)", stk_b_light:"STK body vs Light", acc_b_light:"REQ ACC body vs Light",
+  ttk_h_light:"TTK head vs Light (s)", stk_h_light:"STK head vs Light", acc_h_light:"REQ ACC head vs Light",
+  ttk_b_med:"TTK body vs Medium (s)", stk_b_med:"STK body vs Medium", acc_b_med:"REQ ACC body vs Medium",
+  ttk_h_med:"TTK head vs Medium (s)", stk_h_med:"STK head vs Medium", acc_h_med:"REQ ACC head vs Medium",
+  ttk_b_heavy:"TTK body vs Heavy (s)", stk_b_heavy:"STK body vs Heavy", acc_b_heavy:"REQ ACC body vs Heavy",
+  ttk_h_heavy:"TTK head vs Heavy (s)", stk_h_heavy:"STK head vs Heavy", acc_h_heavy:"REQ ACC head vs Heavy"
+};
+const DIFF_DIR = { // "up" = higher is better, "down" = lower is better, null = neutral
+  dmg_body:"up", dmg_head:"up", dmg_env:"up", rpm:"up", mag:"up",
+  rt_tactical:"down", rt_empty:"down",
+  dpm_body:"up", dpm_head:"up", dps_body:"up", dps_head:"up",
+  ttk_b_light:"down", ttk_h_light:"down", ttk_b_med:"down", ttk_h_med:"down", ttk_b_heavy:"down", ttk_h_heavy:"down"
+};
 function renderDiffUI(){
   const vers = [...VERSIONS].sort(cmpVersions);
   $("#diff-a").innerHTML = $("#diff-b").innerHTML = vers.map(v=>`<option value="${v}">${v}</option>`).join("");
-  if (vers.length >= 2){ $("#diff-a").value = vers[0]; $("#diff-b").value = vers[vers.length-1]; }
+  const go=$("#diff-go"), aEl=$("#diff-a"), bEl=$("#diff-b");
+  if (vers.length >= 2){
+    aEl.value = vers[0]; bEl.value = vers[vers.length-1];
+    go.disabled=false; aEl.disabled=false; bEl.disabled=false;
+    $("#diff-out").innerHTML = "Select two versions to compare.";
+  } else {
+    go.disabled=true; aEl.disabled=true; bEl.disabled=true;
+    $("#diff-out").innerHTML = `<p>Only one version is available so far — <b>${vers[0]||"—"}</b>. Snapshots accumulate automatically as the live sheet reports new versions (see the auto-update workflow), so check back later or run <code>python update_snapshots.py</code> to capture one.</p>`;
+  }
 }
 $("#diff-go").addEventListener("click", async ()=>{
   const a = $("#diff-a").value, b = $("#diff-b").value;
@@ -529,19 +663,36 @@ $("#diff-go").addEventListener("click", async ()=>{
   let A, B;
   try { A = await getVersion(a); B = await getVersion(b); }
   catch(e){ $("#diff-out").innerHTML=`Could not load version data.`; return; }
+  const namesB = new Set(B.map(w=>w.name)), namesA = new Set(A.map(w=>w.name));
   const rows=[];
   A.forEach(w=>{
-    const w2 = B.find(x=>x.name===w.name); if(!w2) return;
+    const w2 = B.find(x=>x.name===w.name);
+    if (!w2){ rows.push({type:"removed", name:w.name}); return; }
     DIFF_FIELDS.forEach(f=>{
       const va=w[f], vb=w2[f];
       if (va!==vb && (va==null||typeof va=="number") && (vb==null||typeof vb=="number"))
-        rows.push([w.name, f, fmt(va), fmt(vb)]);
+        rows.push({type:"change", name:w.name, field:f, va, vb});
     });
   });
+  B.forEach(w=>{ if (!namesA.has(w.name)) rows.push({type:"added", name:w.name}); });
+  const changes = rows.filter(r=>r.type==="change");
+  const added = rows.filter(r=>r.type==="added");
+  const removed = rows.filter(r=>r.type==="removed");
   if (!rows.length){ $("#diff-out").innerHTML=`No stat changes detected between <b>${a}</b> and <b>${b}</b>.`; return; }
-  $("#diff-out").innerHTML = `<p><b>${a}</b> → <b>${b}</b>: ${rows.length} stat change${rows.length===1?"":"s"} across ${A.length} shared weapons.</p>
+  const arrowFor = (f, va, vb) => {
+    const d = DIFF_DIR[f];
+    if (!d || typeof va!=="number" || typeof vb!=="number" || va===vb) return "";
+    const improved = d==="up" ? vb>va : vb<va;
+    return ` <span class="${improved?"up":"down"}">${improved?"▲":"▼"}</span>`;
+  };
+  const body = rows.map(r=>{
+    if (r.type==="added") return `<tr class="added"><td>${esc(r.name)}</td><td>—</td><td>—</td><td>Added in ${b}</td></tr>`;
+    if (r.type==="removed") return `<tr class="removed"><td>${esc(r.name)}</td><td>—</td><td>—</td><td>Removed in ${b}</td></tr>`;
+    return `<tr><td>${esc(r.name)}</td><td>${DIFF_LABELS[r.field]||r.field}</td><td class="chg">${fmt(r.va)}</td><td class="chg">${fmt(r.vb)}${arrowFor(r.field,r.va,r.vb)}</td></tr>`;
+  }).join("");
+  $("#diff-out").innerHTML = `<p><b>${a}</b> → <b>${b}</b>: ${changes.length} stat change${changes.length===1?"":"s"} across ${A.length} shared weapons · <span class="up">+${added.length} added</span> · <span class="down">−${removed.length} removed</span>.</p>
     <table class="diff"><thead><tr><th>Weapon</th><th>Field</th><th>${a}</th><th>${b}</th></tr></thead>
-    <tbody>${rows.map(([n,f,va,vb])=>`<tr><td>${n}</td><td>${f}</td><td class="chg">${va}</td><td class="chg">${vb}</td></tr>`).join("")}</tbody></table>`;
+    <tbody>${body}</tbody></table>`;
 });
 
 /* ---------- live sync ---------- */
@@ -561,17 +712,26 @@ async function loadLive(){
     if (!data.length) throw new Error("empty");
     LATEST = data;
     if (!VERSIONS.includes(ver)) VERSIONS.push(ver);
-    W = LATEST;
+    W = data;
     $("#verbadge").textContent = "VER. " + ver.toUpperCase();
     setSync("live");
-    renderAll(); renderDiffUI();
+    renderAll(); renderDiffUI(); syncURL(); updateTray();
   }catch(e){
     $("#verbadge").textContent = "VER. " + latestVer().toUpperCase();
     setSync("embedded");
   }
 }
 
-renderAll(); renderDiffUI(); syncURL(); loadLive();
+/* ---------- section nav scroll spy ---------- */
+const secLinks=[...document.querySelectorAll(".section-nav a")];
+function setNavActive(key){ secLinks.forEach(a=>a.classList.toggle("active",a.dataset.sec===key)); }
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if (en.isIntersecting) setNavActive(en.target.id==="main"?"weapons":en.target.id); });
+},{rootMargin:"-40% 0px -55% 0px"});
+[$("#main"),$("#analytics"),$("#diff")].forEach(el=>io.observe(el));
+secLinks.forEach(a=>a.addEventListener("click",()=>setNavActive(a.dataset.sec)));
+
+renderAll(); renderDiffUI(); syncURL(); updateTray(); loadLive();
 </script>
 </body>
 </html>
